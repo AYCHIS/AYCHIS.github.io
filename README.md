@@ -3,7 +3,7 @@
 APIs is a customized Integrated Publishing Toolkit (IPT).<br>
 APIs is your infrastructure for data management helping researchers and scientists to organise, store, access, visualise, share and publish biodiversity data through the Global Biodiversity Information Facility (GBIF) easily. APIs is build with the IPT Version 2.3.4 and comes with a new fresh design and improved functionalities. 
 
-![Screenshot](http://home.uni-leipzig.de/idiv/ipt/screenshots/screen1.png) 
+![Screenshot](http://home.uni-leipzig.de/idiv/ipt/screenshots/screen1.png)
 
 ### About the GBIF IPT
 
@@ -11,6 +11,7 @@ The IPT is a free open source software tool written in Java that is used to publ
 
 To understand how the IPT works, try watching this concise 25 minute live demo showing how a dataset gets properly published and registered through GBIF.org ([download Video](http://videos.contentful.com/q553fnlofhvs/3iCjm4lxRSiCYE6Qq2A4GG/63b5690e48de42b0872ba4c25d629fe9/Introduction_to_publishing_using_the_GBIF_Integrated_Publishing_Toolkit__28IPT_29.mp4))
 
+Read the IPT [README.md](https://github.com/ChristianLanger/ipt/blob/master/README-ipt.md) to get all informations about the original IPT.
 
 ### New features by APIs
 
@@ -35,6 +36,7 @@ That´s it! You are now ready to use APIs!
 
 ### More screenshots
 
+![Screenshot](http://home.uni-leipzig.de/idiv/ipt/screenshots/screen5.png)
 ![Screenshot](http://home.uni-leipzig.de/idiv/ipt/screenshots/screen2.png)
 ![Screenshot](http://home.uni-leipzig.de/idiv/ipt/screenshots/screen3.png)
 ![Screenshot](http://home.uni-leipzig.de/idiv/ipt/screenshots/screen4.png)
