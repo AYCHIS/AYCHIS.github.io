@@ -84,7 +84,10 @@ $(document).ready(function(){
 <#include "/WEB-INF/pages/inc/menu.ftl">
 
 <div class="grid_18 suffix_6">
-<h1><@s.text name="admin.home.editRegistration"/></h1>
+<!-- <h1><@s.text name="admin.home.editRegistration"/></h1> -->
+	<div class="headline text-center">
+    <h3 style="margin: 0 0 0 -55px"><@s.text name="admin.home.editRegistration"/></h3>
+  </div>
 
 <#-- If the hosting institution already exists, this IP has been registered. Don't present the register form -->
 
@@ -110,8 +113,8 @@ $(document).ready(function(){
 		<@input name="registeredIpt.primaryContactName" i18nkey="admin.ipt.primaryContactName" type="text" requiredField=true />
 		<@input name="registeredIpt.primaryContactEmail" i18nkey="admin.ipt.primaryContactEmail" type="text" requiredField=true />
 		<div class="buttons">
-			<@s.submit cssClass="button" name="update" id="update" key="button.updateRegistration" />
-		 	<@s.submit cssClass="button" name="cancel" id="cancel" key="button.cancel"/>
+			<@s.submit cssClass="button btn btn-default" name="update" id="update" key="button.updateRegistration" />
+		 	<@s.submit cssClass="button btn btn-danger" name="cancel" id="cancel" key="button.cancel"/>
 		</div>		
 	</form>
 <#else>
@@ -122,7 +125,7 @@ $(document).ready(function(){
 		<p><@s.text name="admin.registration.test1"/></p>
 		
 			<@input name="registration.baseURL" i18nkey="admin.registration.baseURL" type="text" value="${baseURL}" size=70 disabled=true requiredField=true/>
-			<@s.submit cssClass="button" name="validate" id="validate" key="admin.registration.validate"/>
+			<@s.submit cssClass="button btn btn-default" name="validate" id="validate" key="admin.registration.validate"/>
 		
 		<div id="baseURLStatus"></div>
 	</#if>
@@ -134,7 +137,7 @@ $(document).ready(function(){
 			<@s.fielderror>
 		    <@s.param value="%{'organisation.key'}" />
 		  </@s.fielderror>
-      <img class="infoImg" src="${baseURL}/images/info.gif">
+      <i class="infoImg fa fa-info-circle fa-lg"> </i>
       <div class="info" style="display: none;"><@s.text name="admin.registration.intro"/>&nbsp;<@s.text name="admin.registration.intro2"/></div>
       <@s.select cssClass="e1" id="organisation.key" name="organisation.key" list="organisations" listKey="key" listValue="name" value="organisation.key" size="15" disabled="false"/>
 
@@ -164,8 +167,8 @@ $(document).ready(function(){
 			<@s.hidden id="organisation.name" name="organisation.name" />
 			<@s.hidden id="ipt.organisationKey" name="ipt.organisationKey" />
 		   <div class="buttons">
-		 	<@s.submit cssClass="button" name="save" id="save" key="button.save"/>
-		 	<@s.submit cssClass="button" name="cancel" id="cancel" key="button.cancel"/>
+		 	<@s.submit cssClass="button btn btn-default" name="save" id="save" key="button.save"/>
+		 	<@s.submit cssClass="button btn btn-danger" name="cancel" id="cancel" key="button.cancel"/>
 		  </div>	  
 		</@s.form>
 	</div>

@@ -9,20 +9,27 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/"
       xmlns:foaf="http://xmlns.com/foaf/0.1/">
   <head>
-    <link rel="stylesheet" type="text/css" media="all" href="${baseURL}/styles/reset.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="${baseURL}/styles/reset.css" />
 	<link rel="stylesheet" type="text/css" media="all" href="${baseURL}/styles/text.css" />
 	<link rel="stylesheet" type="text/css" media="all" href="${baseURL}/styles/960_24_col.css" />
  	<link rel="stylesheet" type="text/css" href="${baseURL}/styles/main.css" />
-    <link rel="stylesheet" type="text/css" media="all" href="${baseURL}/styles/jquery/dataTable.css"/>
+  <link rel="stylesheet" type="text/css" media="all" href="${baseURL}/styles/jquery/dataTable.css"/>
  	<link rel="shortcut icon" href="${baseURL}/images/icons/favicon-16x16.png" type="image/x-icon" />
 	<link href="${baseURL}/rss.do" title="Latest Resources" rel="alternate" type="application/rss+xml" />
-    <link media="all" type="text/css" href="${baseURL}/styles/jquery/jquery-ui.min-1.11.0.css" rel="stylesheet" />
-    <!-- for css overrides needed for customizations -->
-    <link rel="stylesheet" type="text/css" href="${baseURL}/styles/custom.css" />
-    <!-- for support of old browsers, like IE8. See http://modernizr.com/docs/#html5inie -->
-    <script type="text/javascript" src="${baseURL}/js/modernizr.js"></script>
-    <script type="text/javascript" src="${baseURL}/js/jquery/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="${baseURL}/js/jquery/jquery-ui.min-1.11.0.js"></script>
+  <link media="all" type="text/css" href="${baseURL}/styles/jquery/jquery-ui.min-1.11.0.css" rel="stylesheet" />
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="${baseURL}/vendor/bootstrap/css/bootstrap.min.css">
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="${baseURL}/styles/custom-font.css" >
+  <link href="${baseURL}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Animate css -->
+  <link rel="stylesheet" href="${baseURL}/vendor/animate-css/animate.css">
+  <!-- for css overrides needed for customizations -->
+  <link rel="stylesheet" type="text/css" href="${baseURL}/styles/custom.css" />
+  <!-- for support of old browsers, like IE8. See http://modernizr.com/docs/#html5inie -->
+  <script type="text/javascript" src="${baseURL}/js/modernizr.js"></script>
+  <script type="text/javascript" src="${baseURL}/js/jquery/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="${baseURL}/js/jquery/jquery-ui.min-1.11.0.js"></script>
 	<script type="text/javascript" src="${baseURL}/js/global.js"></script>
 
 [#-- GOOGLE ANALYTICS - asynchroneous: http://code.google.com/apis/analytics/docs/tracking/asyncTracking.html --]

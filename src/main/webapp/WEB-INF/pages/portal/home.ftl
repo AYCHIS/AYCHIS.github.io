@@ -6,7 +6,12 @@
 <script type="text/javascript" language="javascript" src="${baseURL}/js/jquery/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" language="javascript" src="${baseURL}/js/jquery/jquery.dataTables.js"></script>
   <@resourcesTable shownPublicly=true numResourcesShown=20 sEmptyTable="dataTables.sEmptyTable.resources" columnToSortOn=1 sortOrder="asc" />
-<h1 class="rtableTitle"><@s.text name="portal.home.title"/></h1>
+
+<!-- <h1 class="rtableTitle"><@s.text name="portal.home.title"/></h1> -->
+<div class="headline text-center">
+  <h3 class="rtableTitle"><@s.text name="portal.home.title"/></h3>
+  <p>Published Datasets on APIs</p>
+</div>
 <div id="tableContainer"></div>
 
 <!-- RSS Feed shown if there are resources -->

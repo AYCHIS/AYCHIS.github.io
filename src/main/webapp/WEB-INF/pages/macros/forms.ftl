@@ -77,7 +77,8 @@
 <#macro label i18nkey help="" requiredField=false>
   <div>
 	<label><@s.text name="${i18nkey}"/><#if requiredField>&#42;</#if></label>
-	  <img style="visibility:hidden" src="${baseURL}/images/info.gif" />
+	  <!-- <img style="visibility:hidden" src="${baseURL}/images/info.gif" /> -->
+    <i class="fa fa-info-circle fa-lg" style="visibility:hidden"> </i>
 	  <#nested>
   </div>
 </#macro>

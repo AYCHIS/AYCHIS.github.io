@@ -10,14 +10,14 @@
     and the user must have registration rights for any DOI operation made possible -->
     <#if !organisationWithPrimaryDoiAccount??>
 
-      <img class="infoImg" src="${baseURL}/images/warning.gif" />
+      <i class="infoImg fa fa-exclamation-triangle"> </i>
       <div class="info">
         <@s.text name="manage.overview.publishing.doi.reserve.prevented.noOrganisation"/>
       </div>
 
     <#elseif !currentUser.hasRegistrationRights()>
 
-      <img class="infoImg" src="${baseURL}/images/warning.gif" />
+      <i class="infoImg fa fa-exclamation-triangle"> </i>
       <div class="info">
         <@s.text name="manage.resource.status.doi.forbidden"/>&nbsp;<@s.text name="manage.resource.role.change"/>
       </div>
@@ -25,8 +25,8 @@
     <#elseif resource.identifierStatus == "UNRESERVED">
       <form action='resource-reserveDoi.do' method='post'>
           <input name="r" type="hidden" value="${resource.shortname}"/>
-        <@s.submit cssClass="confirmReserveDoi" name="reserveDoi" key="button.reserve" disabled="${missingMetadata?string}"/>
-          <img class="infoImg" src="${baseURL}/images/info.gif" />
+        <@s.submit cssClass="confirmReserveDoi btn btn-danger" name="reserveDoi" key="button.reserve" disabled="${missingMetadata?string}"/>
+          <i class="infoImg fa fa-info-circle fa-lg"> </i>
           <div class="info">
             <@s.text name="manage.overview.publishing.doi.reserve.help"/>
           </div>
@@ -36,8 +36,8 @@
 
       <form action='resource-deleteDoi.do' method='post'>
         <input name="r" type="hidden" value="${resource.shortname}"/>
-        <@s.submit cssClass="confirmDeleteDoi" name="deleteDoi" key="button.delete" disabled="${missingMetadata?string}"/>
-        <img class="infoImg" src="${baseURL}/images/info.gif" />
+        <@s.submit cssClass="confirmDeleteDoi btn btn-danger" name="deleteDoi" key="button.delete" disabled="${missingMetadata?string}"/>
+        <i class="infoImg fa fa-info-circle fa-lg"> </i>
         <div class="info">
           <@s.text name="manage.overview.publishing.doi.delete.help"/>
         </div>
@@ -47,8 +47,8 @@
 
       <form action='resource-reserveDoi.do' method='post'>
         <input name="r" type="hidden" value="${resource.shortname}"/>
-        <@s.submit cssClass="confirmReserveDoi" name="reserveDoi" key="button.reserve.new" disabled="${missingMetadata?string}"/>
-        <img class="infoImg" src="${baseURL}/images/info.gif" />
+        <@s.submit cssClass="confirmReserveDoi btn btn-default" name="reserveDoi" key="button.reserve.new" disabled="${missingMetadata?string}"/>
+        <i class="infoImg fa fa-info-circle fa-lg"> </i>
         <div class="info">
           <@s.text name="manage.overview.publishing.doi.reserve.new.help"/>
         </div>
@@ -235,10 +235,10 @@ $(document).ready(function(){
 <#include "/WEB-INF/pages/macros/forms.ftl"/>
 <#include "/WEB-INF/pages/macros/manage/publish.ftl"/>
 <#assign metadataType = "metadata"/>
-<div class="container_24">
+<!-- <div class="container_24">
   <div class="grid_18 suffix_6">
     <h1>
-        <img class="infoImg" src="${baseURL}/images/info.gif" />
+        <i class="infoImg fa fa-info-circle fa-lg"> </i>
         <div class="info autop">
           <#if resource.coreType?has_content && resource.coreType==metadataType>
             <@s.text name="manage.overview.intro.metadataOnly"><@s.param>${resource.title!resource.shortname}</@s.param></@s.text>
@@ -251,6 +251,23 @@ $(document).ready(function(){
       <@s.text name="manage.overview.description"><@s.param>${resource.title!resource.shortname}</@s.param></@s.text>
     </p>
   </div>
+</div> -->
+<div class="container">
+  <div class="headline text-center">
+    <h3>${resource.title!resource.shortname}</h3>
+  </div>
+  <p><@s.text name="manage.overview.description"><@s.param>${resource.title!resource.shortname}</@s.param></@s.text></p>
+  <h3>
+    <i class="infoImg fa fa-info-circle fa-lg"> </i>
+      <div class="info autop">
+        <#if resource.coreType?has_content && resource.coreType==metadataType>
+          <@s.text name="manage.overview.intro.metadataOnly"><@s.param>${resource.title!resource.shortname}</@s.param></@s.text>
+        <#else>
+          <@s.text name="manage.overview.intro"><@s.param>${resource.title!resource.shortname}</@s.param></@s.text>
+        </#if>
+      </div>
+    <span class="resourceOverviewTitle"><@s.text name="manage.overview.title"/>: </span><a href="resource.do?r=${resource.shortname}" title="${resource.title!resource.shortname}">${resource.title!resource.shortname}</a>
+  </h3>
 </div>
 
 <!-- when resource is of type metadata-only, there is no need to show source data and mapping sections -->
@@ -264,7 +281,7 @@ $(document).ready(function(){
 <div class="resourceOverview" id="publish">
   <div class="titleOverview">
     <div class="head">
-      <img class="infoImg" src="${baseURL}/images/info.gif" />
+      <i class="infoImg fa fa-info-circle fa-lg"> </i>
       <div class="info autop">
         <#if resource.coreType?has_content && resource.coreType==metadataType>
           <@s.text name="manage.overview.published.description.metadataOnly"/>
@@ -310,7 +327,7 @@ $(document).ready(function(){
                   <th></th><#if resource.lastPublished??><td class="green">${lastPublishedTitle?cap_first}</td></#if><td class="left_padding">${nextPublishedTitle?cap_first}</td>
               </tr>
               <tr>
-                  <th>${versionTitle?cap_first}</th><#if resource.lastPublished??><td class="separator green">${resource.emlVersion.toPlainString()}&nbsp;<a class="button" href="${baseURL}/resource?r=${resource.shortname}"><input class="button" type="button" value='${viewTitle?cap_first}'/></a><@dwcaValidator/></td></#if><td class="left_padding">${resource.getNextVersion().toPlainString()}&nbsp;<a class="button" href="${baseURL}/resource/preview?r=${resource.shortname}"><input class="button" type="button" value='${previewTitle?cap_first}' <#if missingMetadata>disabled="disabled"</#if>/></a></td>
+                  <th>${versionTitle?cap_first}</th><#if resource.lastPublished??><td class="separator green">${resource.emlVersion.toPlainString()}&nbsp;<a class="button" href="${baseURL}/resource?r=${resource.shortname}"><input class="button btn btn-default" type="button" value='${viewTitle?cap_first}'/></a><@dwcaValidator/></td></#if><td class="left_padding">${resource.getNextVersion().toPlainString()}&nbsp;<a class="button" href="${baseURL}/resource/preview?r=${resource.shortname}"><input class="button btn btn-default" type="button" value='${previewTitle?cap_first}' <#if missingMetadata>disabled="disabled"</#if>/></a></td>
               </tr>
               <!-- hide visibility row if 1) a DOI has already been assigned to the resource since any resource with a DOI has to be public, 2) the resource is registered, or 3) the visibility of the currenct version and next version are the same -->
               <#if !resource.isAlreadyAssignedDoi() && !resource.isRegistered() && (resource.getStatus()?lower_case != resource.getLastPublishedVersionsPublicationStatus()?lower_case) || !resource.lastPublished?? >
@@ -335,7 +352,7 @@ $(document).ready(function(){
               </tr>
               <#if resource.lastPublished??>
               <tr>
-                  <th>${pubLogTitle?cap_first}</th><td class="separator"><a class="button" target="_blank" href="${baseURL}/publicationlog.do?r=${resource.shortname}"><input class="button" type="button" value='${downloadTitle?cap_first}'/></a></td><td class="left_padding">${emptyCell}</td>
+                  <th>${pubLogTitle?cap_first}</th><td class="separator"><a class="button" target="_blank" href="${baseURL}/publicationlog.do?r=${resource.shortname}"><input class="button btn btn-default" type="button" value='${downloadTitle?cap_first}'/></a></td><td class="left_padding">${emptyCell}</td>
               </tr>
               </#if>
             <#if report??>
@@ -375,7 +392,7 @@ $(document).ready(function(){
 <div class="resourceOverview" id="visibility">
   <div class="titleOverview">
     <div class="head">
-      <img class="infoImg" src="${baseURL}/images/info.gif" />
+      <i class="infoImg fa fa-info-circle fa-lg"> </i>
       <div class="info autop">
         <@s.text name='manage.overview.visibility.description'/>
         </br></br>
@@ -395,45 +412,45 @@ $(document).ready(function(){
         <#if resource.status=="PUBLIC">
           <#if !currentUser.hasRegistrationRights()>
             <!-- Disable register button and show warning: user must have registration rights -->
-            <@s.submit cssClass="confirmRegistration" name="register" key="button.register" disabled="true"/>
-            <img class="infoImg" src="${baseURL}/images/warning.gif"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register" disabled="true"/>
+            <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.resource.status.registration.forbidden"/>&nbsp;<@s.text name="manage.resource.role.change"/>
             </div>
           <#elseif missingValidPublishingOrganisation?string == "true">
             <!-- Disable register button and show warning: user must assign valid publishing organisation -->
-            <@s.submit cssClass="confirmRegistration" name="register" key="button.register" disabled="true"/>
-            <img class="infoImg" src="${baseURL}/images/warning.gif"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register" disabled="true"/>
+            <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.overview.visibility.missing.organisation"/>
             </div>
           <#elseif missingRegistrationMetadata?string == "true">
             <!-- Disable register button and show warning: user must fill in minimum registration metadata -->
-            <@s.submit cssClass="confirmRegistration" name="register" key="button.register" disabled="true"/>
-            <img class="infoImg" src="${baseURL}/images/warning.gif"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register" disabled="true"/>
+            <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.overview.visibility.missing.metadata"/>
             </div>
           <#elseif !resource.isLastPublishedVersionPublic()>
             <!-- Disable register button and show warning: last published version must be publicly available to register -->
-            <@s.submit cssClass="confirmRegistration" name="register" key="button.register" disabled="true"/>
-            <img class="infoImg" src="${baseURL}/images/warning.gif"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register" disabled="true"/>
+            <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.overview.prevented.resource.registration.notPublic"/>
             </div>
           <#elseif !action.isLastPublishedVersionAssignedGBIFSupportedLicense(resource)>
             <!-- Disable register button and show warning: resource must be assigned a GBIF-supported license to register if resource has occurrence data -->
-            <@s.submit cssClass="confirmRegistration" name="register" key="button.register" disabled="true"/>
-            <img class="infoImg" src="${baseURL}/images/warning.gif"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register" disabled="true"/>
+            <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.overview.prevented.resource.registration.noGBIFLicense"/>
             </div>
           <#else>
-            <@s.submit cssClass="confirmRegistration" name="register" key="button.register"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register"/>
           </#if>
         <#else>
           <#if resource.status=="PRIVATE">
-            <@s.submit name="makePrivate" key="button.public"/>
+            <@s.submit name="makePrivate" cssClass="button btn btn-default" key="button.public"/>
           </#if>
         </#if>
       </form>
@@ -441,7 +458,7 @@ $(document).ready(function(){
       <#if resource.status=="PUBLIC" && (resource.identifierStatus=="PUBLIC_PENDING_PUBLICATION" || resource.identifierStatus == "UNRESERVED")>
         <#assign actionMethod>makePrivate</#assign>
         <form action='resource-${actionMethod}.do' method='post'>
-          <@s.submit cssClass="confirm" name="unpublish" key="button.private" />
+          <@s.submit cssClass="confirm btn btn-default" name="unpublish" key="button.private" />
         </form>
       </#if>
     </div>
@@ -453,7 +470,7 @@ $(document).ready(function(){
 
       <#if cfg.devMode() && cfg.getRegistryType()!='PRODUCTION'>
         <div class="twenty_bottom twenty_top">
-            <img class="info" src="${baseURL}/images/warning.gif"/>
+            <i class="info fa fa-exclamation-triangle"> </i>
             <em><@s.text name="manage.overview.published.testmode.warning"/></em>
         </div>
       </#if>
@@ -490,7 +507,7 @@ $(document).ready(function(){
 <div class="resourceOverview" id="managers">
   <div class="titleOverview">
     <div class="head">
-      <img class="infoImg" src="${baseURL}/images/info.gif" />
+      <i class="infoImg fa fa-info-circle fa-lg"> </i>
       <div class="info autop">
         <@s.text name='manage.overview.resource.managers.description'/>
       </div>
@@ -508,7 +525,7 @@ $(document).ready(function(){
               <option value="${u.email}">${u.name}</option>
             </#list>
           </select>
-          <@s.submit name="add" key="button.add"/>
+          <@s.submit name="add" cssClass="button btn btn-default" key="button.add"/>
         </form>
       </div>
     </#if>
@@ -531,7 +548,7 @@ $(document).ready(function(){
                   <!-- Warning: method name match is case sensitive therefore must be deleteManager -->
                   <td>${u.name}, ${u.email}&nbsp;
                       <a class="button" href="resource-deleteManager.do?r=${resource.shortname}&id=${u.email}">
-                          <input class="button" type="button" value='<@s.text name='button.delete'/>'/>
+                          <input class="button btn btn-danger" type="button" value='<@s.text name='button.delete'/>'/>
                       </a>
                   </td>
               </tr>
@@ -553,9 +570,9 @@ $(document).ready(function(){
   <#if resource.status == "DELETED">
       <form action='resource-undelete.do' method='post'>
         <input name="r" type="hidden" value="${resource.shortname}" />
-        <@s.submit cssClass="button confirmUndeletion" name="undelete" key="button.undelete" disabled='${disableRegistrationRights?string}' />
+        <@s.submit cssClass="btn btn-danger confirmUndeletion" name="undelete" key="button.undelete" disabled='${disableRegistrationRights?string}' />
         <#if !currentUser.hasRegistrationRights()>
-            <img class="infoImg" src="${baseURL}/images/warning.gif"/>
+            <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.resource.status.undeletion.forbidden"/>&nbsp;<@s.text name="manage.resource.role.change"/>
             </div>
@@ -564,9 +581,9 @@ $(document).ready(function(){
   <#else>
       <form action='resource-delete.do' method='post'>
         <input name="r" type="hidden" value="${resource.shortname}" />
-        <@s.submit cssClass="button confirmDeletion" name="delete" key="button.delete" disabled='${disableRegistrationRights?string}'/>
+        <@s.submit cssClass="btn btn-danger confirmDeletion" name="delete" key="button.delete" disabled='${disableRegistrationRights?string}'/>
         <#if !currentUser.hasRegistrationRights() && (resource.isAlreadyAssignedDoi()?string == "true" || resource.status == "REGISTERED")>
-        <img class="infoImg" src="${baseURL}/images/warning.gif"/>
+        <i class="infoImg fa fa-exclamation-triangle"> </i>
           <div class="info autop">
             <@s.text name="manage.resource.status.deletion.forbidden"/>&nbsp;<@s.text name="manage.resource.role.change"/>
           </div>

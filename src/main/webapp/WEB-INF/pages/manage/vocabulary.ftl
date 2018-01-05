@@ -4,7 +4,10 @@
  <#assign currentMenu = "manage"/>
 <#include "/WEB-INF/pages/inc/menu.ftl">
 
-<h1>${vocabulary.title}</h1>
+<!-- <h1>${vocabulary.title}</h1> -->
+<div class="headline text-center">
+    <h3>${vocabulary.title}</h3>
+</div>
 
 <p>${vocabulary.description!}</p>
 <#if vocabulary.subject?has_content>
@@ -15,7 +18,7 @@
 </#if>
 
 
-<h1><@s.text name="vocabulary.concepts"/></h1>
+<h3><@s.text name="vocabulary.concepts"/></h3>
                                
 <#list vocabulary.concepts as c>	
 <a name="${c.identifier}"></a>          

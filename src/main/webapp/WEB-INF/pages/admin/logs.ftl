@@ -9,10 +9,13 @@ $(document).ready(function(){
   });
 </script>
 <#include "/WEB-INF/pages/inc/menu.ftl">
-<div class="grid_24">
-<h1><@s.text name="admin.home.manageLogs"/></h1>
-
-<h3 class="subTitle"><@s.text name="admin.logs.warn"/></h3>
+<!-- <div class="grid_24">
+<h1><@s.text name="admin.home.manageLogs"/></h1> -->
+<div>
+	<div class="headline text-center">
+    <h3><@s.text name="admin.home.manageLogs"/></h3>
+  </div>
+<p class="subTitle"><@s.text name="admin.logs.warn"/></p>
 <p><@s.text name="admin.logs.download"><@s.param>logfile.do?log=debug</@s.param></@s.text></p>
 
 <pre id="logs">

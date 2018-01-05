@@ -154,10 +154,11 @@
 <#include "/WEB-INF/pages/inc/menu.ftl">
 <#include "/WEB-INF/pages/macros/forms.ftl"/>
 
-<h1><span class="superscript"><@s.text name='manage.overview.title.label'/></span>
+<!-- <h3><span class="superscript"><@s.text name='manage.overview.title.label'/></span>
     <a href="resource.do?r=${resource.shortname}" title="${resource.title!resource.shortname}">${resource.title!resource.shortname}</a>
-</h1>
-<div class="grid_17 suffix_1">
+</h3> -->
+<a href="resource.do?r=${resource.shortname}" title="${resource.title!resource.shortname}"><i class="fa fa-backward"></i> Overview: ${resource.title!resource.shortname}</a>
+<div class="col-md-12">
 <h2 class="subTitle"><@s.text name='manage.metadata.tempcoverage.title'/></h2>
 <form class="topForm" action="metadata-${section}.do" method="post">
     <p><@s.text name='manage.metadata.tempcoverage.intro'/></p>
@@ -203,8 +204,8 @@
 	<!-- The add link and the buttons should be first. The next div is hidden. -->
 	<div class="addNew"><a id="plus" href="" ><@s.text name='manage.metadata.addnew' /> <@s.text name='manage.metadata.tempcoverage.item' /></a></div>
 	<div class="buttons">
-		<@s.submit cssClass="button" name="save" key="button.save"/>
-		<@s.submit cssClass="button" name="cancel" key="button.cancel"/>
+		<@s.submit cssClass="button btn btn-default" name="save" key="button.save"/>
+		<@s.submit cssClass="button btn btn-danger" name="cancel" key="button.cancel"/>
 	</div>
 	<!-- internal parameter -->
 	<input name="r" type="hidden" value="${resource.shortname}" />	

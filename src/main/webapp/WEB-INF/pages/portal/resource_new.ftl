@@ -2,7 +2,7 @@
 <#escape x as x?html>
   <#include "/WEB-INF/pages/inc/header.ftl">
   <title>${eml.title!"IPT"}</title>
-  <#include "/WEB-INF/pages/inc/menu.ftl">
+  <#include "/WEB-INF/pages/inc/menu-3.ftl">
   <#include "/WEB-INF/pages/macros/forms.ftl"/>
   <#include "/WEB-INF/pages/macros/versionsTable.ftl"/>
 <#--
@@ -242,7 +242,10 @@
                         <div id="watermark"><@s.text name='manage.overview.metadata.preview'><@s.param>${resource.emlVersion.toPlainString()}</@s.param></@s.text></div>
                     </#if>
                     <div>
-                        <h1 property="dc:title" class="rtitle">${eml.title!resource.shortname}</h1>
+                        <!-- <h1 property="dc:title" class="rtitle">${eml.title!resource.shortname}</h1> -->
+                          <div class="headline text-center">
+                            <h3>${eml.title!resource.shortname}</h3>
+                          </div>
                         <div>
                           <#assign doi>${action.findDoiAssignedToPublishedVersion()!}</#assign>
                           <#if doi?has_content>
@@ -328,6 +331,8 @@
                     </div>
                 </div>
 
+
+
               <!-- Dataset must have been published for versions, downloads, and how to cite sections to show -->
               <#if resource.lastPublished??>
 
@@ -340,7 +345,7 @@
                 <#if metadataOnly != true>
                   <div id="dataRecords" class="row">
                     <div>
-                      <h1><@s.text name='portal.resource.dataRecords'/></h1>
+                      <h3><@s.text name='portal.resource.dataRecords'/></h3>
                       <p>
                         <@s.text name='portal.resource.dataRecords.intro'><@s.param>${action.getCoreType()?lower_case}</@s.param></@s.text>
                         <#if coreExt?? && coreExt.name?has_content && coreCount?has_content>
@@ -376,7 +381,7 @@
                   <!-- downloads section -->
                   <div id="downloads" class="row">
                      <div>
-                        <h1><@s.text name='portal.resource.downloads'/></h1>
+                        <h3><@s.text name='portal.resource.downloads'/></h3>
                         <#if metadataOnly == true>
                             <p><@s.text name='portal.resource.downloads.metadataOnly.verbose'/></p>
                         <#else>
@@ -422,7 +427,7 @@
                 <#if resource.versionHistory??>
                 <div id ="versions" class="row">
                     <div>
-                      <h1><@s.text name='portal.resource.versions'/></h1>
+                      <h3><@s.text name='portal.resource.versions'/></h3>
                       <#if managerRights>
                         <p><@s.text name='portal.resource.versions.verbose.manager'/></p>
                       <#else>
@@ -441,7 +446,7 @@
                 <#if eml.citation?? && (eml.citation.citation?has_content || eml.citation.identifier?has_content)>
                     <div id="citation" class="row">
                         <div>
-                            <h1><@s.text name='portal.resource.cite.howTo'/></h1>
+                            <h3><@s.text name='portal.resource.cite.howTo'/></h3>
                             <p>
                               <#if version?? && version.toPlainString() != resource.emlVersion.toPlainString()>
                                   <em class="warn"><@s.text name='portal.resource.latest.version.warning'/>&nbsp;</em>
@@ -457,7 +462,7 @@
                 <#if eml.intellectualRights?has_content>
                 <div id="rights" class="row">
                     <div>
-                        <h1><@s.text name='eml.intellectualRights.simple'/></h1>
+                        <h3><@s.text name='eml.intellectualRights.simple'/></h3>
                         <p><@s.text name='portal.resource.rights.help'/>:</p>
                         <@licenseLogoClass eml.intellectualRights!/>
                         <p property="dc:license">
@@ -473,7 +478,7 @@
               <!-- GBIF Registration section -->
               <div id="gbif" class="row">
                   <div>
-                      <h1><@s.text name='portal.resource.organisation.key'/></h1>
+                      <h3><@s.text name='portal.resource.organisation.key'/></h3>
                     <#if resource.status=="REGISTERED" && resource.organisation??>
                         <p>
                           <@s.text name='manage.home.registered.verbose'><@s.param>${cfg.portalUrl}/dataset/${resource.key}</@s.param><@s.param>${resource.key}</@s.param></@s.text>
@@ -490,7 +495,7 @@
               <#if eml.subject?has_content>
                   <div id="keywords" class="row">
                       <div>
-                          <h1><@s.text name='portal.resource.summary.keywords'/></h1>
+                          <h3><@s.text name='portal.resource.summary.keywords'/></h3>
                           <p property="dc:subject"><@textWithFormattedLink eml.subject!no_description/></p>
                       </div>
                   </div>
@@ -500,7 +505,7 @@
                 <#if (eml.physicalData?size > 0 )>
                 <div id="external" class="row">
                     <div>
-                        <h1><@s.text name='manage.metadata.physical.alternativeTitle'/></h1>
+                        <h3><@s.text name='manage.metadata.physical.alternativeTitle'/></h3>
                         <p><@s.text name='portal.resource.otherFormats'/></p>
                         <table>
                           <#list eml.physicalData as item>
@@ -520,7 +525,7 @@
                 <#if (eml.contacts?size>0) || (eml.creators?size>0) || (eml.metadataProviders?size>0) || (eml.associatedParties?size>0)>
                   <div id="contacts" class="row">
                     <div>
-                        <h1><@s.text name='portal.resource.contacts'/></h1>
+                        <h3><@s.text name='portal.resource.contacts'/></h3>
                         <p><@s.text name='portal.resource.creator.intro'/>:</p>
                         <div class="fullwidth">
                           <@contactList contacts=eml.creators dcPropertyType='creator'/>
@@ -554,7 +559,7 @@
                 <#if eml.geospatialCoverages[0]??>
                     <div id="geospatial" class="row">
                         <div>
-                            <h1><@s.text name='portal.resource.summary.geocoverage'/></h1>
+                            <h3><@s.text name='portal.resource.summary.geocoverage'/></h3>
                             <p property="dc:spatial"><@textWithFormattedLink eml.geospatialCoverages[0].description!no_description/></p>
                             <table>
                                     <tr>
@@ -570,7 +575,7 @@
                 <#if ((organizedCoverages?size > 0))>
                     <div id="taxanomic" class="row">
                         <div>
-                            <h1><@s.text name='manage.metadata.taxcoverage.title'/></h1>
+                            <h3><@s.text name='manage.metadata.taxcoverage.title'/></h3>
                             <#list organizedCoverages as item>
                               <p><@textWithFormattedLink item.description!no_description/></p>
                                 <table>
@@ -604,7 +609,7 @@
                   <#if ((eml.temporalCoverages?size > 0))>
                   <div id="temporal" class="row">
                       <div>
-                          <h1><@s.text name='manage.metadata.tempcoverage.title'/></h1>
+                          <h3><@s.text name='manage.metadata.tempcoverage.title'/></h3>
                         <#list eml.temporalCoverages as item>
                             <table>
                               <#if ("${item.type}" == "DATE_RANGE") && eml.temporalCoverages[item_index].startDate?? && eml.temporalCoverages[item_index].endDate?? >
@@ -639,7 +644,7 @@
                   <#if eml.project?? && eml.project.title?has_content>
                   <div id="project" class="row">
                       <div>
-                          <h1><@s.text name='manage.metadata.project.title'/></h1>
+                          <h3><@s.text name='manage.metadata.project.title'/></h3>
                           <p><@textWithFormattedLink eml.project.description!no_description/></p>
                           <table>
                             <#if eml.project.title?has_content>
@@ -689,7 +694,7 @@
                   <#if eml.studyExtent?has_content || eml.sampleDescription?has_content || eml.qualityControl?has_content || (eml.methodSteps?? && (eml.methodSteps?size>=1) && eml.methodSteps[0]?has_content) >
                   <div id="methods" class="row">
                       <div>
-                          <h1><@s.text name='manage.metadata.methods.title'/></h1>
+                          <h3><@s.text name='manage.metadata.methods.title'/></h3>
                           <p><@textWithFormattedLink eml.sampleDescription!no_description/></p>
                           <table>
                             <#if eml.studyExtent?has_content>
@@ -727,7 +732,7 @@
                   <#if eml.collections?? && (eml.collections?size > 0) && eml.collections[0].collectionName?has_content >
                   <div id="collection" class="row">
                       <div>
-                          <h1><@s.text name='manage.metadata.collections.title'/></h1>
+                          <h3><@s.text name='manage.metadata.collections.title'/></h3>
                           <#list eml.collections as item>
                               <table>
                                 <#if item.collectionName?has_content>
@@ -793,7 +798,7 @@
               <!-- bibliographic citations section -->
                 <#if eml.bibliographicCitationSet?? && (eml.bibliographicCitationSet.bibliographicCitations?has_content)>
                 <div id="references" class="row">
-                    <h1><@s.text name='manage.metadata.citations.bibliography'/></h1>
+                    <h3><@s.text name='manage.metadata.citations.bibliography'/></h3>
                     <ol>
                       <#list eml.bibliographicCitationSet.bibliographicCitations as item>
                         <#if item.citation?has_content>
@@ -812,7 +817,7 @@
                   <#if eml.additionalInfo?has_content || eml.purpose?has_content || (eml.alternateIdentifiers?size > 0 )>
                   <div id="additional" class="row">
                       <div>
-                          <h1><@s.text name='manage.metadata.additional.title'/></h1>
+                          <h3><@s.text name='manage.metadata.additional.title'/></h3>
                           <#if eml.additionalInfo?has_content>
                               <p><@textWithFormattedLink eml.additionalInfo/></p>
                           </#if>

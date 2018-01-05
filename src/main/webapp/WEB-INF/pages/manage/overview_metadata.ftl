@@ -2,7 +2,7 @@
 <div class="resourceOverview" id="metadata">
   <div class="titleOverview">
     <div class="head">
-      <img class="infoImg" src="${baseURL}/images/info.gif" />
+      <i class="infoImg fa fa-info-circle fa-lg"> </i>
       <div class="info autop">
         <@s.text name='manage.metadata.basic.required.message'/>
         <#if resource.coreType?has_content && resource.coreType==metadataType>
@@ -16,13 +16,13 @@
       <form action='metadata-basic.do' method='get'>
         <input name="r" type="hidden" value="${resource.shortname}"/>
         <#if missingMetadata>
-            <@s.submit name="edit" key="button.edit"/>
-            <img class="infoImg" src="${baseURL}/images/warning.gif"/>
+            <@s.submit name="edit" cssClass="button btn btn-default" key="button.edit"/>
+            <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.overview.missing.metadata"/>
             </div>
         <#else>
-          <@s.submit name="edit" key="button.edit"/>
+          <@s.submit name="edit" cssClass="button btn btn-default" key="button.edit"/>
         </#if>
       </form>
     </div>

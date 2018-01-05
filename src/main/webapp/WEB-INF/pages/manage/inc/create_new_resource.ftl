@@ -11,11 +11,11 @@
 
   <div id="create-button" class="buttons">
     <#if (organisations?size>0) >
-      <@s.submit cssClass="button" name="create" key="button.create"/>
+      <@s.submit cssClass="button btn btn-default" name="create" key="button.create"/>
     <#else>
       <!-- Disable create button and show warning: must be at least one organization able to host -->
-      <@s.submit cssClass="button" name="create" key="button.create" disabled="true"/>
-      <img class="infoImg" src="${baseURL}/images/warning.gif"/>
+      <@s.submit cssClass="button btn btn-default" name="create" key="button.create" disabled="true"/>
+      <i class="infoImg fa fa-exclamation-triangle"> </i>
       <div class="info autop">
         <@s.text name="manage.resource.create.forbidden"/>
       </div>

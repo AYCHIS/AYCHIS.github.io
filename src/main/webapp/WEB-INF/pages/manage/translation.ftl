@@ -45,10 +45,14 @@ $(document).ready(function(){
 <#include "/WEB-INF/pages/macros/forms.ftl"/>
 <#include "/WEB-INF/pages/macros/manage/translation_buttons.ftl"/>
 
-<h1><@s.text name="manage.translation.title"/></h1>
+<!-- <h1><@s.text name="manage.translation.title"/></h1> -->
+<div class="headline text-center">
+    <h3><@s.text name="manage.translation.title"/></h3>
+</div>
+
 <p><@s.text name="manage.translation.intro"/></p>
 
-<h2><@s.text name="manage.translation.property"/> <em>${property.name}</em></h2>
+<h3><@s.text name="manage.translation.property"/> <em>${property.name}</em></h3>
 <p>&quot;${property.description!}&quot;</p>
 
 <#if property.vocabulary?has_content>

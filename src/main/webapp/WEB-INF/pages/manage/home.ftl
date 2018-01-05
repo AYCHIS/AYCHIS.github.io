@@ -14,7 +14,13 @@
 </script>
   <@resourcesTable shownPublicly=false numResourcesShown=10 sEmptyTable="manage.home.resources.none" columnToSortOn=6 sortOrder="desc"/>
 
-<h1 class="rtableTitle"><@s.text name="manage.home.title"/></h1>
+<!-- <h1 class="rtableTitle"><@s.text name="manage.home.title"/></h1> -->
+<div class="headline text-center">
+  <h3 class="rtableTitle"><@s.text name="manage.home.title"/></h3>
+  <p>The list of datasets you granted permission to modify.</p>
+  <p>The visibility of a dataset determines who will be able to view it, whether viewing is just private to you (private) or available to every registered user (public).</p> 
+</div>
+
 <div id="tableContainer"></div>
 
 <div id="new-resource" class="grid_18">

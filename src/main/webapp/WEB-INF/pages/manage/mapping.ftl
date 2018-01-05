@@ -187,6 +187,9 @@ $(document).ready(function(){
 });   
 </script>
 <style>
+.datasetDoiCheckbox {
+    margin-left: -200px !important;
+}
 </style>
 <#assign currentMenu = "manage"/>
 <#include "/WEB-INF/pages/inc/menu.ftl">
@@ -195,9 +198,9 @@ $(document).ready(function(){
 <#assign nonMapped = action.getNonMappedColumns()/>
 
 <#macro threeButtons>
-  <@s.submit cssClass="button" name="save" key="button.save"/>
-  <@s.submit cssClass="confirm" name="delete" key="button.delete"/>
-  <@s.submit cssClass="button" name="cancel" key="button.back"/>
+  <@s.submit cssClass="btn btn-default" name="save" key="button.save"/>
+  <@s.submit cssClass="btn btn-danger confirm" name="delete" key="button.delete"/>
+  <@s.submit cssClass="btn btn-default" name="cancel" key="button.back"/>
 </#macro>
 
 <#macro sourceSample index fieldsIndex>
@@ -235,7 +238,7 @@ $(document).ready(function(){
 
   <div class="mappingRow<#if p.required> required</#if> ${["odd", "even"][index%2]}">
       <div>
-        <img class="infoImg" src="${baseURL}/images/info.gif" />
+        <i class="infoImg fa fa-info-circle fa-lg"> </i>
         <div class="info">
           <#if p.description?has_content>${p.description}<br/><br/></#if>
           <#if datasetId?? && p.qualifiedName()?lower_case == datasetId.qualname?lower_case><@s.text name='manage.mapping.datasetIdColumn.help'/><br/><br/></#if>
@@ -290,7 +293,7 @@ $(document).ready(function(){
             <#if (((field.translation?size)!0)>0)>
             ${(field.translation?size)!0} terms
             <#else>
-                <button type="button" class="add" onclick="window.location.href"><@s.text name="button.add"/></button>
+                <button type="button" class="btn btn-default add" onclick="window.location.href"><@s.text name="button.add"/></button>
             </#if>
           </a>
       </div>
@@ -308,9 +311,12 @@ $(document).ready(function(){
   </#if>
 </#macro>
 
-<h1><span class="superscript"><@s.text name='manage.overview.title.label'/></span>
+<!-- <h1><span class="superscript"><@s.text name='manage.overview.title.label'/></span>
   <a href="resource.do?r=${resource.shortname}" title="${resource.title!resource.shortname}">${resource.title!resource.shortname}</a>
-</h1>
+</h1> -->
+  <div class="headline text-center">
+    <h3>${resource.title!resource.shortname}</h3>
+  </div>
 
 <form id="mappingForm" action="mapping.do" method="post">
 
@@ -351,7 +357,7 @@ $(document).ready(function(){
         <div class="container-fluid">
 
             <h2 class="subTitle">
-                <img class="infoImg" src="${baseURL}/images/info.gif" />
+                <i class="infoImg fa fa-info-circle fa-lg"> </i>
                 <div class="info autop">
                   <@s.text name='manage.mapping.intro'/>
                 </div>
@@ -378,7 +384,7 @@ $(document).ready(function(){
 
                     <div class="mappingRow requiredMapping">
                       <#if coreid??>
-                          <img class="infoImg" src="${baseURL}/images/info.gif" />
+                          <i class="infoImg fa fa-info-circle fa-lg"> </i>
                           <div class="info">
                             <#if coreid.description?has_content>${coreid.description}</#if>
                             <#if coreid.link?has_content><@s.text name="basic.seealso"/> <a href="${coreid.link}">${coreid.link}</a></#if>
@@ -421,7 +427,7 @@ $(document).ready(function(){
 
                     <div id="filterSection" class="mappingRow mappingFiler">
 
-                            <img class="infoImg" src="${baseURL}/images/info.gif" />
+                            <i class="infoImg fa fa-info-circle fa-lg"> </i>
                             <div class="info">
                               <@s.text name='manage.mapping.info'/>
                             </div>

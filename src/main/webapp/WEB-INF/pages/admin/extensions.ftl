@@ -17,7 +17,7 @@
           <div class="head">
               <a href="extension.do?id=${ext.rowType?url}">${ext.title}</a>
 						<#if !ext.isLatest()>
-                <img class="infoImg" src="${baseURL}/images/warning.gif"/>
+                <i class="infoImg fa fa-exclamation-triangle"> </i>
                 <div class="info autop">
 									<@s.text name="admin.extension.version.warning"/>
                 </div>
@@ -27,12 +27,12 @@
 						<#if !ext.isLatest()>
                 <form action='updateExtension.do' method='post'>
                     <input type='hidden' name='id' value='${ext.rowType}' />
-									<@s.submit cssClass="confirm" name="update" key="button.update"/>
+									<@s.submit cssClass="confirm btn btn-default" name="update" key="button.update"/>
                 </form>
 						</#if>
               <form action='extension.do' method='post'>
                   <input type='hidden' name='id' value='${ext.rowType}' />
-								<@s.submit name="delete" key="button.remove"/>
+								<@s.submit cssClass="btn btn-danger" name="delete" key="button.remove"/>
               </form>
           </div>
       </div>
@@ -62,8 +62,20 @@
 	<#assign currentMenu = "admin"/>
 	<#include "/WEB-INF/pages/inc/menu.ftl">
 
-<div class="grid_23">
+<!-- <div class="grid_23">
   <h1><@s.text name="admin.extension.coreTypes"/></h1>
+  <p>
+    <@s.text name="admin.extension.no.coreTypes.installed.help"><@s.param>${cfg.registryUrl}</@s.param></@s.text>
+  </p> -->
+
+  <div>
+  <div class="headline text-center">
+    <h3><@s.text name="admin.extension.coreTypes"/> &amp; Extensions</h3>
+  </div>
+  <p>
+    The following Core Types and Extensions are currently installed:<br><br>
+  </p>
+  <h3><@s.text name="admin.extension.coreTypes"/></h3>
   <p>
     <@s.text name="admin.extension.no.coreTypes.installed.help"><@s.param>${cfg.registryUrl}</@s.param></@s.text>
   </p>
@@ -80,14 +92,15 @@
     <@s.text name="admin.extension.no.coreTypes.installed"/>
   </p>
   <p>
-    <img src="${baseURL}/images/warning.gif"/>
+    <i class="fa fa-exclamation-triangle"> </i>
     <@s.text name="admin.extension.no.coreTypes.installed.debug"><@s.param>${cfg.registryUrl}</@s.param></@s.text>
   </p>
 </#if>
 </div>
 
 <div class="grid_23">
-<h1><@s.text name="admin.extension.extensions"/></h1>
+<!-- <h1><@s.text name="admin.extension.extensions"/></h1> -->
+<h3><@s.text name="admin.extension.extensions"/></h3>
   <p>
   <@s.text name="admin.extension.no.extensions.installed.help"><@s.param>${cfg.registryUrl}</@s.param></@s.text>
   </p>
@@ -113,7 +126,7 @@
       <p><@s.text name="extension.last.synchronised"><@s.param>${lastSynchronised?date?string("yyyy-MM-dd HH:mm:ss")}</@s.param></@s.text></p>
 	</#if>
 	<form action='extensions.do' method='post'>
-    <@s.submit name="synchronise" key="button.synchronise"/>
+    <@s.submit cssClass="btn btn-default" name="synchronise" key="button.synchronise"/>
   </form><br/>
 </div>
 <hr/>
@@ -135,7 +148,7 @@
   	<div class="actions">
 	  <form action='extension.do' method='post'>
 		<input type='hidden' name='url' value='${ext.url}' />
-		<@s.submit name="install" key="button.install"/>
+		<@s.submit cssClass="btn btn-default" name="install" key="button.install"/>
   	  </form>
   	</div>
   </div>

@@ -20,10 +20,13 @@ $(document).ready(function(){
  <#assign currentMenu = "manage"/>
 <#include "/WEB-INF/pages/inc/menu.ftl">
 <#include "/WEB-INF/pages/macros/forms.ftl"/>
-<div class="grid_18 suffix_6">
-<h1><span class="superscript"><@s.text name='manage.overview.title.label'/></span>
+<div class="grid_18 suffix_6" style="display:block;float:none">
+<!-- <h1><span class="superscript"><@s.text name='manage.overview.title.label'/></span>
     <a href="resource.do?r=${resource.shortname}" title="${resource.title!resource.shortname}">${resource.title!resource.shortname}</a>
-</h1>
+</h1> -->
+  <div class="headline text-center">
+    <h3>${resource.title!resource.shortname}</h3>
+  </div>
 </div>
 <div class="grid_24">
 <form class="topForm" action="source.do" method="post">
@@ -34,36 +37,38 @@ $(document).ready(function(){
     <#if source??>
       <p><@s.text name='manage.source.intro'/></p>
       <div class="clearfix">
-        <div class="halfcolumn">
-          <@input name="source.name" help="i18n" disabled=id?has_content/>
-        </div>
-        <div class="halfcolumn">
-          <div class="detailsSource">
-            <table id="source-properties">
-              <tr><th><@s.text name='manage.source.readable'/></th><td><img src="${baseURL}/images/<#if source.readable>good.gif" /><#else>bad.gif" /> ${problem!}</#if></td></tr>
-              <tr><th><@s.text name='manage.source.columns'/></th><td>${source.getColumns()}</td></tr>
-              <#if source.fieldsTerminatedBy?has_content>
-                <tr><th><@s.text name='manage.source.file'/></th><td>${(source.file.getAbsolutePath())!}</td></tr>
-                <tr><th><@s.text name='manage.source.size'/></th><td>${source.fileSizeFormatted!"???"}</td></tr>
-                <tr><th><@s.text name='manage.source.rows'/></th><td>${source.rows!"???"}</td></tr>
-                <tr><th><@s.text name='manage.source.modified'/></th><td>${(source.lastModified?datetime?string.medium)!}</td></tr>
-                <#if (logExists)>
-                    <tr><th><@s.text name='manage.source.source.log'/></th><td><a href="${baseURL}/sourcelog.do?r=${resource.shortname}&s=${source.name}"><@s.text name='manage.source.download'/></a></td></tr>
-                </#if>
-              <#else>
-              </#if>
-            </table>
-            <table class="bottomButtons">
-              <tr>
-                <th>
-                  <@s.submit cssClass="button" name="analyze" key="button.analyze"/>
-                  <!-- preview icon is taken from Gentleface Toolbar Icon Set available from http://gentleface.com/free_icon_set.html licensed under CC-BY -->
-                  <a href="#" id="peekBtn" class="icon icon-preview peekBtn"/>
-                </th>
-              </tr>
-            </table>
+        <div class="row">
+          <div class="col-md-6">
+            <@input name="source.name" help="i18n" disabled=id?has_content/>
           </div>
-        </div>
+          <div class="col-md-6">
+            <div class="detailsSource">
+              <table id="source-properties">
+                <tr><th><@s.text name='manage.source.readable'/></th><td><img src="${baseURL}/images/<#if source.readable>good.gif" /><#else>bad.gif" /> ${problem!}</#if></td></tr>
+                <tr><th><@s.text name='manage.source.columns'/></th><td>${source.getColumns()}</td></tr>
+                <#if source.fieldsTerminatedBy?has_content>
+                  <tr><th><@s.text name='manage.source.file'/></th><td>${(source.file.getAbsolutePath())!}</td></tr>
+                  <tr><th><@s.text name='manage.source.size'/></th><td>${source.fileSizeFormatted!"???"}</td></tr>
+                  <tr><th><@s.text name='manage.source.rows'/></th><td>${source.rows!"???"}</td></tr>
+                  <tr><th><@s.text name='manage.source.modified'/></th><td>${(source.lastModified?datetime?string.medium)!}</td></tr>
+                  <#if (logExists)>
+                      <tr><th><@s.text name='manage.source.source.log'/></th><td><a href="${baseURL}/sourcelog.do?r=${resource.shortname}&s=${source.name}"><@s.text name='manage.source.download'/></a></td></tr>
+                  </#if>
+                <#else>
+                </#if>
+              </table>
+              <table class="bottomButtons">
+                <tr>
+                  <th>
+                    <@s.submit cssClass="btn btn-default" name="analyze" key="button.analyze"/>
+                    <!-- preview icon is taken from Gentleface Toolbar Icon Set available from http://gentleface.com/free_icon_set.html licensed under CC-BY -->
+                    <a href="#" id="peekBtn" class="icon icon-preview peekBtn"/>
+                  </th>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>  
       </div>
 
       <#-- inputs used by multiple source types -->
@@ -85,92 +90,111 @@ $(document).ready(function(){
 
           <#if source.isSqlSource()>
           <#-- only for sql sources -->
-              <div class="fullcolumn">
+            <div class="row">
+              <div class="col-md-12">
                 <@select name="rdbms" options=jdbcOptions value="${source.rdbms.name!}" i18nkey="sqlSource.rdbms" />
               </div>
-              <div class="halfcolumn">
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
                 <@input name="sqlSource.host" help="i18n"/>
               </div>
-              <div class="halfcolumn">
+              <div class="col-md-6">
                 <@input name="sqlSource.database" help="i18n"/>
               </div>
-              <div class="halfcolumn">
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
                 <@input name="sqlSource.username" />
               </div>
-              <div class="halfcolumn">
+              <div class="col-md-6">
                 <@input name="sqlSource.password" type="password" />
               </div>
-            <div class="fullcolumn">
-            <@text name="sqlSource.sql" help="i18n"/>
-            <#if sqlSource.sql?has_content>
-              <@label i18nkey="sqlSource.sqlLimited" >
-              ${sqlSource.getSqlLimited(10)}
-              </@label>
             </div>
-            </#if>
-              <div class="halfcolumn">
+
+            <div class="row">
+              <div class="col-md-12">
+              <@text name="sqlSource.sql" help="i18n"/>
+              <#if sqlSource.sql?has_content>
+                <@label i18nkey="sqlSource.sqlLimited" >
+                ${sqlSource.getSqlLimited(10)}
+                </@label>
+              </div>
+              </#if>
+            </div>
+
+              <div class="col-md-6">
                 <@encoding/>
               </div>
-              <div class="halfcolumn">
+              <div class="col-md-6">
                 <@dateFormat/>
               </div>
-              <div class="halfcolumn">
+
+              <div class="col-md-6">
                 <@multivalue/>
               </div>
-              <div class="halfcolumn">
+              <div class="col-md-6">
               </div>
+
           <#elseif source.isExcelSource()>
           <#-- excel source -->
-              <div class="halfcolumn">
+              <div class="col-md-6">
                 <@headerLines/>
               </div>
-              <div class="halfcolumn">
+              <div class="col-md-6">
                 <@select name="source.sheetIdx" options=source.sheets() value="${source.sheetIdx}" i18nkey="excelSource.sheets" />
               </div>
-              <div class="halfcolumn">
+              <div class="col-md-6">
                 <@multivalue/>
               </div>
-              <div class="halfcolumn">
+              <div class="col-md-6">
               </div>
 
           <#else>
           <#-- file source -->
-              <div class="halfcolumn">
+              <div class="col-md-6">
                 <@headerLines/>
               </div>
-              <div class="halfcolumn">
+              <div class="col-md-6">
               </div>
-              <div class="halfcolumn">
+              <div class="col-md-6">
                 <@input name="fileSource.fieldsTerminatedByEscaped" help="i18n" helpOptions={"\\t":"[ \\t ] Tab",",":"[ , ] Comma",";":"[ ; ] Semicolon","|":"[ | ] Pipe"}/>
               </div>
-              <div class="halfcolumn">
+              <div class="col-md-6">
                 <@input name="fileSource.fieldsEnclosedByEscaped" help="i18n" helpOptions={"":"None","&quot;":"Double Quote","'":"Single Quote"}/>
               </div>
-              <div class="halfcolumn">
+              <div class="col-md-6">
                 <@multivalue/>
               </div>
-              <div class="halfcolumn">
+              <div class="col-md-6">
                 <@encoding/>
               </div>
-              <div class="halfcolumn">
+              <div class="col-md-6">
                 <@dateFormat/>
               </div>
-              <div class="halfcolumn">
+              <div class="col-md-6">
               </div>
           </#if>
 
         </div>
 
-        <div class="buttons">
-          <@s.submit cssClass="button" name="save" key="button.save"/>
-	        <@s.submit cssClass="button" name="cancel" key="button.cancel"/>
- 	        <#if id?has_content>
-            <@s.submit cssClass="confirm" name="delete" key="button.delete.source.file"/>
-          </#if>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="userManageButtons">
+            <@s.submit cssClass="btn btn-default" name="save" key="button.save"/>
+            <@s.submit cssClass="btn btn-default" name="cancel" key="button.cancel"/>
+            <#if id?has_content>
+              <@s.submit cssClass="btn btn-danger confirm" name="delete" key="button.delete.source.file"/>
+            </#if>
+            </div>
+          </div>
         </div>
+
     <#else>
         <div class="buttons">
-          <@s.submit cssClass="button" name="cancel" key="button.back"/>
+          <@s.submit cssClass="btn btn-danger" name="cancel" key="button.back"/>
         </div>
     </#if>
 </form>

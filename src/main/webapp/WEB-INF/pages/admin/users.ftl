@@ -17,15 +17,18 @@ $(document).ready(function(){
 <#include "/WEB-INF/pages/inc/menu.ftl">
 <#include "/WEB-INF/pages/macros/usersTable.ftl"/>
 
-<h1 class="rtableTitle"><@s.text name="admin.home.manageUsers"/></h1>
+<!-- <h1 class="rtableTitle"><@s.text name="admin.home.manageUsers"/></h1> -->
+<div class="headline text-center">
+  <h3 class="rtableTitle"><@s.text name="admin.home.manageUsers"/></h3>
+ </div>
 
 <@usersTable numUsersShown=20 sEmptyTable="dataTables.sEmptyTable.users" columnToSortOn=0 sortOrder="asc" />
 <div id="tableContainer"></div>
 
 <div class="grid_24">
 <p>
-	<button id="create"><@s.text name="button.create"/></button>
-	<button id="cancel"><@s.text name="button.cancel"/></button>
+	<button id="create" class="btn btn-default"><@s.text name="button.create"/></button>
+	<button id="cancel" class="btn btn-danger"><@s.text name="button.cancel"/></button>
 </p>
 </div>
 

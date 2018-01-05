@@ -81,7 +81,7 @@
           </div>
 
           <div class="buttons">
-            <@s.submit cssClass="button" name="save" key="button.save"/>
+            <@s.submit cssClass="btn btn-default" name="save" key="button.save"/>
 	          <@s.submit cssClass="button" name="back" key="button.cancel"/>
           </div>
        <#else>

@@ -2,7 +2,7 @@
 <div class="resourceOverview" id="sources">
   <div class="titleOverview">
     <div class="head">
-      <img class="infoImg" src="${baseURL}/images/info.gif" />
+      <i class="infoImg fa fa-info-circle fa-lg"> </i>
       <div class="info autop">
       <@s.text name='manage.overview.source.description1'/>&nbsp;<@s.text name='manage.overview.source.description2'/>&nbsp;<@s.text name='manage.overview.source.description3'><@s.param><@s.text name="button.add"/></@s.param></@s.text></br></br><@s.text name='manage.overview.source.description4'><@s.param><@s.text name="button.connectDB"/></@s.param></@s.text></br></br><@s.text name='manage.overview.source.description5'/>
       </div>
@@ -13,8 +13,8 @@
         <input name="r" type="hidden" value="${resource.shortname}"/>
         <input name="validate" type="hidden" value="false"/>
         <@s.file name="file" key="manage.resource.create.file"/>
-        <@s.submit name="add" key="button.connectDB"/>
-        <@s.submit name="clear" key="button.clear"/>
+        <@s.submit name="add" cssClass="button btn btn-default" key="button.connectDB"/>
+        <@s.submit name="clear" cssClass="button btn btn-default" key="button.clear"/>
         <div style="display: none;">
           <@s.submit name="cancel" key="button.cancel" method="cancelOverwrite"/>
         </div>
@@ -40,17 +40,17 @@
             <tr>
               <#if src.isFileSource()>
                 <th>${src.name} <@s.text name='manage.overview.source.file'/></th>
-                <td>${src.fileSizeFormatted},&nbsp;${src.rows}&nbsp;<@s.text name='manage.overview.source.rows'/>,&nbsp;${src.getColumns()}&nbsp;<@s.text name='manage.overview.source.columns'/>.&nbsp;${(src.lastModified?date?string.medium)!}<#if !src.readable>&nbsp;<img src="${baseURL}/images/warning.gif"/></#if></td>
+                <td>${src.fileSizeFormatted},&nbsp;${src.rows}&nbsp;<@s.text name='manage.overview.source.rows'/>,&nbsp;${src.getColumns()}&nbsp;<@s.text name='manage.overview.source.columns'/>.&nbsp;${(src.lastModified?date?string.medium)!}<#if !src.readable>&nbsp;<!-- <img src="${baseURL}/images/warning.gif"/> --><i class="fa fa-exclamation-triangle"> </i></#if></td>
               <#elseif src.isExcelSource()>
                 <th>${src.name} <@s.text name='manage.overview.source.excel'/></th>
-                <td>${src.fileSizeFormatted},&nbsp;${src.rows}&nbsp;<@s.text name='manage.overview.source.rows'/>,&nbsp;${src.getColumns()}&nbsp;<@s.text name='manage.overview.source.columns'/>.&nbsp;${(src.lastModified?date?string.medium)!}<#if !src.readable>&nbsp;<img src="${baseURL}/images/warning.gif"/></#if></td>
+                <td>${src.fileSizeFormatted},&nbsp;${src.rows}&nbsp;<@s.text name='manage.overview.source.rows'/>,&nbsp;${src.getColumns()}&nbsp;<@s.text name='manage.overview.source.columns'/>.&nbsp;${(src.lastModified?date?string.medium)!}<#if !src.readable>&nbsp;<!-- <img src="${baseURL}/images/warning.gif"/> --><i class="fa fa-exclamation-triangle"> </i></#if></td>
               <#else>
                 <th>${src.name} <@s.text name='manage.overview.source.sql'/></th>
-                <td>db=${src.database!"..."},&nbsp;${src.columns}&nbsp;<@s.text name='manage.overview.source.columns'/>.<#if !src.readable>&nbsp;<img src="${baseURL}/images/warning.gif"/></#if></td>
+                <td>db=${src.database!"..."},&nbsp;${src.columns}&nbsp;<@s.text name='manage.overview.source.columns'/>.<#if !src.readable>&nbsp;<!-- <img src="${baseURL}/images/warning.gif"/> --><i class="fa fa-exclamation-triangle"> </i></#if></td>
               </#if>
               <td>
                 <a class="button" href="source.do?r=${resource.shortname}&id=${src.name}">
-                  <input class="button" type="button" value='<@s.text name='button.edit'/>'/>
+                  <input class="button btn btn-default" type="button" value='<@s.text name='button.edit'/>'/>
                 </a>
               </td>
             </tr>
@@ -64,7 +64,7 @@
 <div class="resourceOverview" id="mappings">
   <div class="titleOverview">
     <div class="head">
-        <img class="infoImg" src="${baseURL}/images/info.gif" />
+        <i class="infoImg fa fa-info-circle fa-lg"> </i>
         <div class="info autop">
         <@s.text name='manage.overview.DwC.Mappings.coretype.description1'/></br></br><@s.text name='manage.overview.DwC.Mappings.coretype.description2'/></br></br><@s.text name='manage.overview.DwC.Mappings.coretype.description3'/></br></br><@s.text name='manage.overview.DwC.Mappings.coretype.description4'/>
         </div>
@@ -92,13 +92,13 @@
                   </optgroup>
               </#if>
             </select>
-          <@s.submit name="add" key="button.add"/>
+          <@s.submit cssClass="btn btn-default" name="add" key="button.add"/>
         </form>
     <#else>
         <select>
             <option value=""></option>
         </select>
-        <img class="infoImg" src="${baseURL}/images/warning.gif" />
+        <i class="infoImg fa fa-exclamation-triangle"> </i>
         <div class="info autop">
           <@s.text name="manage.overview.DwC.Mappings.cantdo"/>
         </div>
@@ -131,7 +131,7 @@
                           <!-- preview icon is taken from Gentleface Toolbar Icon Set available from http://gentleface.com/free_icon_set.html licensed under CC-BY -->
                           <a href="mappingPeek.do?r=${resource.shortname}&id=${m.extension.rowType?url}&mid=${m_index}" class="icon icon-preview peekBtn"/>
                           <a class="button" href="mapping.do?r=${resource.shortname}&id=${m.extension.rowType?url}&mid=${m_index}">
-                              <input class="button" type="button" value='<@s.text name='button.edit'/>'/>
+                              <input class="button btn btn-default" type="button" value='<@s.text name='button.edit'/>'/>
                           </a>
 
                       </td>
@@ -151,7 +151,7 @@
                                 <!-- preview icon is taken from Gentleface Toolbar Icon Set available from http://gentleface.com/free_icon_set.html licensed under CC-BY -->
                                 <a href="mappingPeek.do?r=${resource.shortname}&id=${ext.rowType?url}&mid=${m_index}" class="icon icon-preview peekBtn"/>
                                 <a class="button" href="mapping.do?r=${resource.shortname}&id=${ext.rowType?url}&mid=${m_index}">
-                                    <input class="button" type="button" value='<@s.text name='button.edit'/>'/>
+                                    <input class="button btn btn-default" type="button" value='<@s.text name='button.edit'/>'/>
                                 </a>
                             </td>
                         </tr>

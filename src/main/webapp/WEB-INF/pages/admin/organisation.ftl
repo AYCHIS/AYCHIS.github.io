@@ -93,7 +93,7 @@ $(document).ready(function(){
     <@s.hidden name="organisation.primaryContactType" id="organisation.primaryContactType" />
     <@s.hidden name="organisation.homepageURL" id="organisation.homepageURL" />
     <@s.hidden name="organisation.description" id="organisation.description" />
-    <img class="infoImg" src="${baseURL}/images/info.gif">
+    <i class="infoImg fa fa-info-circle fa-lg"> </i>
     <div class="info" style="display: none;"><@s.text name="admin.registration.intro"/>&nbsp;<@s.text name="admin.organisation.add.intro2"/></div>
     <@s.select id="organisation.key" name="organisation.key" list="organisations" listKey="key" listValue="name" value="organisation.key" disabled="false"/>
 	</#if>		  
@@ -109,7 +109,7 @@ $(document).ready(function(){
 
   <div class="radio">
     <@s.text name="admin.organisation.doiRegistrationAgency"/>
-      <img class="infoImg" src="${baseURL}/images/info.gif">
+      <i class="infoImg fa fa-info-circle fa-lg"> </i>
       <div class="info" style="display: none;"><@s.text name="admin.organisation.doiRegistrationAgency.help"/></div>
     <@s.fielderror>
       <@s.param value="%{'organisation.doiRegistrationAgency'}" />
