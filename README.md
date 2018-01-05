@@ -24,14 +24,14 @@ APIs enhances the original IPT with a new design and new functionalities to have
 
 ### Get started
 
-The simplest way to begin using the IPT is installing Apache Tomcat on your server or local machine. GBIF offers a useful installation guide [GBIF Wiki](https://github.com/gbif/ipt/wiki/IPTServerPreparation.wiki) to install Tomcat on your system.
+The simplest way to begin using the IPT is installing Apache Tomcat on your server or local machine. GBIF offers a useful installation guide ([GBIF Wiki](https://github.com/gbif/ipt/wiki/IPTServerPreparation.wiki)) to install Tomcat on your system.
 
 After you have successfully installed Tomcat on your system you need to deploy the .war file in the Java servlet container. Download the ipt-apis.war file directly [here](https://github.com/ChristianLanger/ipt/blob/master/ipt-apis.war) or run the bash command in the webapp folder. 
 
 `jar -cvf ipt-apis.war *`
 
 After you have deployed the .war file in your java servlet container your application will be listed in your Tomcat Web Application Manager. If you have used your local machine for installation call `localhost:8080/ipt` in your web browser.
-That´s it you are now ready to use APIs!
+That´s it! You are now ready to use APIs!
 
 ### More screenshots
 
