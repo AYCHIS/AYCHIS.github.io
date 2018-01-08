@@ -34,7 +34,7 @@ After successfully installed Tomcat on your system you need to deploy the web ap
 
 `jar -cvf ipt-apis.war *`
 
-After deploying the .war file your web application will be listed in your Tomcat Web Application Manager. If you have used your local machine for the IPT installation you can reach the application via `localhost:8080/ipt` in your web browser.
+After deploying the .war file your web application will be listed in your Tomcat Web Application Manager. If you have used your local machine for the IPT installation you can reach the application via `localhost:8080/ipt` in your web browser.<br><br>
 That´s it! You are now ready to use APIs!
 
 ### More screenshots
