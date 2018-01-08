@@ -2,9 +2,9 @@
 
 APIs is your infrastructure for data management helping researchers and scientists to organise, store, access, visualise, share and publish biodiversity data through the Global Biodiversity Information Facility (GBIF) easily.<br>APIs is based on the IPT Version 2.3.4 but comes with a new design and improved functionalities.
 
-Part of the landing page of APIs: 
+APIs landing page: 
 
-![Screenshot](http://home.uni-leipzig.de/idiv/ipt/screenshots/screen1.png)
+![APIs landing page](http://home.uni-leipzig.de/idiv/ipt/screenshots/screen6.png)
 
 ### About the GBIF IPT
 
