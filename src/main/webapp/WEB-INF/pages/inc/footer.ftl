@@ -98,7 +98,7 @@
               </table>
               <br>
               <p>Design and Customization by <a href="http://www.geobon.org" target="_blank">GEO BON</a>.</p>
-              <p>Contact <a href="mailto:christian.langer[at]idiv.de">IPT administrator</a> for further informations.</p>
+              <p>Do you need further help? Please contact the <a href="mailto:christian.langer[at]idiv.de">Administrator</a>.</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

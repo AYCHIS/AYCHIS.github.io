@@ -213,7 +213,7 @@ $(document).ready(function(){
                 <div class="about">
                   <i class="fa fa-line-chart fa-5x"></i>
                   <h2>Biodiversity monitoring</h2>
-                  <p>share dynamic population abundance data including time series population data or presence/absence data, while documenting the sampling protocol</p>
+                  <p>Share dynamic population abundance data including time series population data or presence/absence data, while documenting the sampling protocol</p>
                 </div>
               </div>
 
@@ -259,7 +259,7 @@ $(document).ready(function(){
           <div class="container">
             <div class="headline text-center">
               <h3>Frequently asked questions</h3>
-              <p>Answers to the most frequently asked questions about publishing your datasets via APIs.</p>
+              <p>Answers to the most frequently asked questions about APIs.</p>
             </div>
             <div class="row">
 
@@ -277,7 +277,7 @@ $(document).ready(function(){
                     <div id="collapse_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_1" aria-expanded="false" style="height: 0px;">
                       <div class="panel-body">
                         APIs is a web application based on the Integrated Publishing Toolkit (IPT).
-                        The IPT is a free open source software tool written in Java that is used to publish and share biodiversity datasets through the Global Biodiversity Information Facility (GBIF) network. The IPT is using the Darwin Core Archive.
+                        The IPT is a free open source software tool written in Java that is used to publish and share biodiversity datasets through the Global Biodiversity Information Facility (GBIF) network. The IPT is using the Darwin Core Archive (DwC-A).
                       </div>
                     </div>
                   </div>
@@ -292,8 +292,7 @@ $(document).ready(function(){
                     </div>
                     <div id="collapse_2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_2" aria-expanded="false" style="height: 0px;">
                       <div class="panel-body">
-                        Darwin Core Archive (DwC-A) is a Biodiversity informatics data standard that makes use of the Darwin Core terms to produce a single, self contained dataset for species occurrence, event-based or taxonomic (species) data. It is the preferred format for publishing data to GBIF. You export your data as a set of one or more text (CSV) files. A simple XML metadata descriptor file (called meta.xml) is required to inform others how your files are organized.
-                        This web application produces the meta.xml for you. 
+                        Darwin Core Archive (DwC-A) is a Biodiversity informatics data standard that makes use of the Darwin Core terms to produce a single, self contained dataset for species occurrence, event-based or taxonomic (species) data.<br><br>DwC-A is the preferred format for publishing data to GBIF. This archive contains a set of one or more text (CSV) files, a simple XML metadata descriptor file (called meta.xml) to inform others how your files are organized and a simple XML metadata file (called EML.xml) to describe your dataset.
                       </div>
                     </div>
                   </div>
@@ -308,7 +307,7 @@ $(document).ready(function(){
                     </div>
                     <div id="collapse_3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_3" aria-expanded="false" style="height: 0px;">
                       <div class="panel-body">
-                        Metadata describes your datasat. Every dataset requires a minimal set of descriptive metadata in order to be published in the GBIF network. This basic metadata, the first of a series of metadata pages, includes the title, type, description, contact for your dataset etc. Please note for each contact you must supply at least a last name, a position or an organisation.  
+                        Metadata describes your datasat. This description is summarized in the EML.xml of the DwC-A. Every dataset requires a minimal set of descriptive metadata in order to be published on APIs. This basic metadata includes the title, type, description and contact for your dataset.
                       </div>
                     </div>
                   </div>
@@ -317,13 +316,13 @@ $(document).ready(function(){
                     <div class="panel-heading" role="tab" id="heading_4">
                       <h4 class="panel-title">
                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_4" aria-expanded="false" aria-controls="collapse_2">
-                          What is the difference between publishing and registering a dataset?
+                          What is the difference between publishing on APIs and registering a dataset with GBIF?
                         </a>
                       </h4>
                     </div>
                     <div id="collapse_4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_4" aria-expanded="false" style="height: 0px;">
                       <div class="panel-body">
-                        When you publish a dataset via the IPT you create a DwC-A of your dataset which is accessible on APIS. But a dataset that has been registered is discoverable through the GBIF website and the data from the dataset can be indexed by and accessed from the GBIF portal.
+                        When you publish a dataset via APIs you create a DwC-A of your dataset which is accessible on APIs. But a dataset that has been registered with GBIF is discoverable through the GBIF website and the data from the dataset can be indexed by and accessed from the GBIF portal.
                       </div>
                     </div>
                   </div>
