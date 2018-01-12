@@ -18,7 +18,10 @@ $(document).ready(function(){
  <#assign currentMenu = "manage"/>
 <#include "/WEB-INF/pages/inc/menu.ftl">
 
-<h1>${resource.title!resource.shortname}</h1>
+<!-- <h1>${resource.title!resource.shortname}</h1> -->
+	<div class="headline text-center">
+		<h3><@s.text name='manage.report.title'/></h3>
+	</div>
 
 <div id="report">
 </div>

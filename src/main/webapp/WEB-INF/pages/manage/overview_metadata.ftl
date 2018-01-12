@@ -1,4 +1,5 @@
 <!-- Represents metadata section on resource overview page -->
+<hr>
 <div class="resourceOverview" id="metadata">
   <div class="titleOverview">
     <div class="head">
@@ -47,3 +48,4 @@
 
   </div>
 </div>
+<hr>

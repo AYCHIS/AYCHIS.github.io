@@ -388,7 +388,7 @@ $(document).ready(function(){
       </div>
   </div>
 </div>
-
+<hr>
 <div class="resourceOverview" id="visibility">
   <div class="titleOverview">
     <div class="head">
@@ -412,41 +412,41 @@ $(document).ready(function(){
         <#if resource.status=="PUBLIC">
           <#if !currentUser.hasRegistrationRights()>
             <!-- Disable register button and show warning: user must have registration rights -->
-            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register" disabled="true"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register with GBIF" key="button.register2" disabled="true"/>
             <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.resource.status.registration.forbidden"/>&nbsp;<@s.text name="manage.resource.role.change"/>
             </div>
           <#elseif missingValidPublishingOrganisation?string == "true">
             <!-- Disable register button and show warning: user must assign valid publishing organisation -->
-            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register" disabled="true"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register2" disabled="true"/>
             <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.overview.visibility.missing.organisation"/>
             </div>
           <#elseif missingRegistrationMetadata?string == "true">
             <!-- Disable register button and show warning: user must fill in minimum registration metadata -->
-            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register" disabled="true"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register2" disabled="true"/>
             <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.overview.visibility.missing.metadata"/>
             </div>
           <#elseif !resource.isLastPublishedVersionPublic()>
             <!-- Disable register button and show warning: last published version must be publicly available to register -->
-            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register" disabled="true"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register2" disabled="true"/>
             <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.overview.prevented.resource.registration.notPublic"/>
             </div>
           <#elseif !action.isLastPublishedVersionAssignedGBIFSupportedLicense(resource)>
             <!-- Disable register button and show warning: resource must be assigned a GBIF-supported license to register if resource has occurrence data -->
-            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register" disabled="true"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register2" disabled="true"/>
             <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.overview.prevented.resource.registration.noGBIFLicense"/>
             </div>
           <#else>
-            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register2"/>
           </#if>
         <#else>
           <#if resource.status=="PRIVATE">
@@ -503,7 +503,7 @@ $(document).ready(function(){
       </#if>
   </div>
 </div>
-
+<hr>
 <div class="resourceOverview" id="managers">
   <div class="titleOverview">
     <div class="head">
@@ -567,8 +567,16 @@ $(document).ready(function(){
   <#else>
     <#assign disableRegistrationRights="true"/>
   </#if>
+
+
+
   <#if resource.status == "DELETED">
-      <form action='resource-undelete.do' method='post'>
+
+      <form action='${baseURL}/manage/' method='post' style="float:left;margin-right:20px;">
+          <@s.submit cssClass="btn btn-default" name="Save" key="button.save"/>
+      </form>
+
+      <form action='resource-undelete.do' method='post' style="margin-top:20px">
         <input name="r" type="hidden" value="${resource.shortname}" />
         <@s.submit cssClass="btn btn-danger confirmUndeletion" name="undelete" key="button.undelete" disabled='${disableRegistrationRights?string}' />
         <#if !currentUser.hasRegistrationRights()>
@@ -578,8 +586,13 @@ $(document).ready(function(){
             </div>
         </#if>
       </form>
+
   <#else>
-      <form action='resource-delete.do' method='post'>
+      <form action='${baseURL}/manage/' method='post' style="float:left;margin-right:20px;">
+          <@s.submit cssClass="btn btn-default" name="Save" key="button.save"/>
+      </form>
+
+      <form action='resource-delete.do' method='post' style="margin-top:20px">
         <input name="r" type="hidden" value="${resource.shortname}" />
         <@s.submit cssClass="btn btn-danger confirmDeletion" name="delete" key="button.delete" disabled='${disableRegistrationRights?string}'/>
         <#if !currentUser.hasRegistrationRights() && (resource.isAlreadyAssignedDoi()?string == "true" || resource.status == "REGISTERED")>
@@ -589,7 +602,12 @@ $(document).ready(function(){
           </div>
         </#if>
       </form>
+
   </#if>
+
+
+
+
 
 </div>
 <div id="dialog"></div>

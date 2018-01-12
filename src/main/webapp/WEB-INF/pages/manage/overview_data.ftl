@@ -60,7 +60,7 @@
     </#if>
   </div>
 </div>
-
+<hr>
 <div class="resourceOverview" id="mappings">
   <div class="titleOverview">
     <div class="head">
