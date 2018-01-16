@@ -419,34 +419,34 @@ $(document).ready(function(){
             </div>
           <#elseif missingValidPublishingOrganisation?string == "true">
             <!-- Disable register button and show warning: user must assign valid publishing organisation -->
-            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register2" disabled="true"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register with GBIF" key="button.register2" disabled="true"/>
             <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.overview.visibility.missing.organisation"/>
             </div>
           <#elseif missingRegistrationMetadata?string == "true">
             <!-- Disable register button and show warning: user must fill in minimum registration metadata -->
-            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register2" disabled="true"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register with GBIF" key="button.register2" disabled="true"/>
             <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.overview.visibility.missing.metadata"/>
             </div>
           <#elseif !resource.isLastPublishedVersionPublic()>
             <!-- Disable register button and show warning: last published version must be publicly available to register -->
-            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register2" disabled="true"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register with GBIF" key="button.register2" disabled="true"/>
             <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.overview.prevented.resource.registration.notPublic"/>
             </div>
           <#elseif !action.isLastPublishedVersionAssignedGBIFSupportedLicense(resource)>
             <!-- Disable register button and show warning: resource must be assigned a GBIF-supported license to register if resource has occurrence data -->
-            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register2" disabled="true"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register with GBIF" key="button.register2" disabled="true"/>
             <i class="infoImg fa fa-exclamation-triangle"> </i>
             <div class="info autop">
               <@s.text name="manage.overview.prevented.resource.registration.noGBIFLicense"/>
             </div>
           <#else>
-            <@s.submit cssClass="confirmRegistration btn btn-default" name="register" key="button.register2"/>
+            <@s.submit cssClass="confirmRegistration btn btn-default" name="register with GBIF" key="button.register2"/>
           </#if>
         <#else>
           <#if resource.status=="PRIVATE">
