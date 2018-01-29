@@ -4,7 +4,7 @@ APIs is your infrastructure for data management helping researchers and scientis
 
 APIs landing page: 
 
-![APIs landing page](http://home.uni-leipzig.de/idiv/ipt/screenshots/screen6.png)
+![APIs landing page](http://home.uni-leipzig.de/idiv/ipt/screenshots/screen1.png)
 
 ### About the GBIF IPT
 
@@ -41,5 +41,5 @@ That´s it! You are now ready to use APIs!
 
 ![Screenshot](http://home.uni-leipzig.de/idiv/ipt/screenshots/screen2.png)
 ![Screenshot](http://home.uni-leipzig.de/idiv/ipt/screenshots/screen3.png)
-![Screenshot](http://home.uni-leipzig.de/idiv/ipt/screenshots/screen4.png)
+![Screenshot](http://home.uni-leipzig.de/idiv/ipt/screenshots/screen5.png)
 
