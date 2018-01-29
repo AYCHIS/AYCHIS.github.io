@@ -149,6 +149,14 @@ div.info {
   width: 330px;
 }
 
+select#rowType {
+    width: 250px;
+}
+
+div.resourceOverview div.titleOverview div.head {
+    margin-bottom: 20px;
+}
+
 div.resourceOverview div.titleOverview {
   width:340px;
 }
@@ -615,6 +623,12 @@ div.requiredMapping {
 
 .sidebar-nav li a:hover {
     background: #e6eaf5;
+}
+
+/* RESOURCE FINAL DOWNLOAD */
+
+div.contact .contactName {
+    cursor: pointer;
 }
 
 

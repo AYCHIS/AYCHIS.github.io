@@ -61,6 +61,11 @@
   </div>
 </div>
 <hr>
+<h4>2. Darwin Core Mapping</h4> 
+<p>After you have successfully added your source data (.txt, .csv...) or connected your database table you need to map your column headers from your source data to the Darwin Core terms.</p>
+<p>The DwC-Archive (DwC-A) is a relational model in which a row in a <strong>central core table</strong> can be linked to many rows in <strong>one or more surrounding extension tables</strong> via an unique identifier - <strong>the eventID</strong>.</p>
+<p>1. First, select a Core Table, choose your corresponding source data for that Core and map that before selecting an Extension to map.<br>If you deal with time series population data, the Core Table is <strong>Darwin Core Event</strong>, which describes your sampling area incl. protocol and time like <strong>sampleSize</strong>, <strong>samplingProtocol</strong> and <strong>eventDate</strong>.</p>
+<p>2. Second, select the Extension table(s), choose your corresponding source data for that Extension and map it.<br>When your Core Table is <strong>Darwin Core Event</strong>, your extension Tables are all other tables you want to connect to that Core, e.g. <strong>Darwin Core Occurrence</strong>, which describes your species occurrence records like <strong>scientificName</strong>, <strong>organismQuantity</strong> etc.</p>
 <div class="resourceOverview" id="mappings">
   <div class="titleOverview">
     <div class="head">

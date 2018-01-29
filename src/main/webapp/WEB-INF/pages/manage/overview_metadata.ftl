@@ -1,5 +1,7 @@
 <!-- Represents metadata section on resource overview page -->
 <hr>
+<h4>3. Metadata</h4> 
+<p>Metadata describes your dataset. Basic Metadata like Author, License, Contact details etc. is mandatory.</p>
 <div class="resourceOverview" id="metadata">
   <div class="titleOverview">
     <div class="head">
@@ -49,3 +51,6 @@
   </div>
 </div>
 <hr>
+<h4>4. Publishing</h4> 
+<p>Almost done! Publish your dataset on APIs to get a unique identifier so that other scientists can cite your work.</p>
+<p>You want to register your dataset as well to GBIF? No problem, move to step 5...</p>

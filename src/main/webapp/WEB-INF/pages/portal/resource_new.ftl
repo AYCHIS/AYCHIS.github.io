@@ -118,7 +118,7 @@
   <#assign anchor_citation>#citation</#assign>
 
 <!-- Sidebar -->
-<div id="sidebar-wrapper">
+<!-- <div id="sidebar-wrapper">
 
     <ul class="sidebar-nav">
         <li>
@@ -126,9 +126,9 @@
         </li>
         <li>
             <a class="sidebar-anchor work" href="#"><@s.text name='portal.resource.summary'/></a>
-        </li>
+        </li> -->
         <!-- Dataset must have been published to show data records, versions, downloads, and how to cite sections -->
-        <#if resource.lastPublished??>
+<!--         <#if resource.lastPublished??>
           <#if metadataOnly != true>
               <li>
                   <a class="sidebar-anchor" href="#dataRecords"><@s.text name='portal.resource.dataRecords'/></a>
@@ -139,9 +139,9 @@
         </li>
         <li>
             <a class="sidebar-anchor" href="${anchor_versions}"><@s.text name='portal.resource.versions'/></a>
-        </li>
+        </li> -->
         <!-- Citation section -->
-        <#if eml.citation?? && (eml.citation.citation?has_content || eml.citation.identifier?has_content)>
+<!--         <#if eml.citation?? && (eml.citation.citation?has_content || eml.citation.identifier?has_content)>
           <li>
             <a class="sidebar-anchor" href="${anchor_citation}"><@s.text name='portal.resource.cite.howTo'/></a>
           </li>
@@ -152,75 +152,75 @@
         <li>
           <a class="sidebar-anchor" href="#gbif"><@s.text name='portal.resource.organisation.key'/></a>
         </li>
-      </#if>
+      </#if> -->
         <!-- Keywords section -->
-        <#if eml.subject?has_content>
+<!--         <#if eml.subject?has_content>
             <li>
                 <a class="sidebar-anchor" href="#keywords"><@s.text name='portal.resource.summary.keywords'/></a>
             </li>
-        </#if>
+        </#if> -->
         <!-- External data section -->
-      <#if (eml.physicalData?size > 0 )>
+<!--       <#if (eml.physicalData?size > 0 )>
           <li>
               <a class="sidebar-anchor" href="#external"><@s.text name='manage.metadata.physical.alternativeTitle'/></a>
           </li>
-      </#if>
+      </#if> -->
         <!-- Contacts section -->
-        <#if (eml.contacts?size>0) || (eml.creators?size>0) || (eml.metadataProviders?size>0) || (eml.associatedParties?size>0)>
+<!--         <#if (eml.contacts?size>0) || (eml.creators?size>0) || (eml.metadataProviders?size>0) || (eml.associatedParties?size>0)>
           <li>
             <a class="sidebar-anchor" href="#contacts"><@s.text name='portal.resource.contacts'/></a>
           </li>
-        </#if>
+        </#if> -->
         <!-- Geo coverage section -->
-      <#if eml.geospatialCoverages[0]??>
+<!--       <#if eml.geospatialCoverages[0]??>
         <li>
             <a class="sidebar-anchor" href="#geospatial"><@s.text name='portal.resource.summary.geocoverage'/></a>
         </li>
-      </#if>
+      </#if> -->
         <!-- Taxonomic coverage sections -->
-      <#if ((organizedCoverages?size > 0))>
+<!--       <#if ((organizedCoverages?size > 0))>
           <li>
               <a class="sidebar-anchor" href="#taxanomic"><@s.text name='manage.metadata.taxcoverage.title'/></a>
           </li>
-      </#if>
+      </#if> -->
     <!-- Temporal coverages section -->
-  <#if ((eml.temporalCoverages?size > 0))>
+<!--   <#if ((eml.temporalCoverages?size > 0))>
         <li>
             <a class="sidebar-anchor" href="#temporal"><@s.text name='manage.metadata.tempcoverage.title'/></a>
         </li>
-  </#if>
+  </#if> -->
         <!-- Project section -->
-      <#if eml.project?? && eml.project.title?has_content>
+<!--       <#if eml.project?? && eml.project.title?has_content>
           <li>
               <a class="sidebar-anchor" href="#project"><@s.text name='manage.metadata.project.title'/></a>
           </li>
-      </#if>
+      </#if> -->
         <!-- Sampling methods section -->
-      <#if eml.studyExtent?has_content || eml.sampleDescription?has_content || eml.qualityControl?has_content || (eml.methodSteps?? && (eml.methodSteps?size>=1) && eml.methodSteps[0]?has_content) >
+<!--       <#if eml.studyExtent?has_content || eml.sampleDescription?has_content || eml.qualityControl?has_content || (eml.methodSteps?? && (eml.methodSteps?size>=1) && eml.methodSteps[0]?has_content) >
           <li>
               <a class="sidebar-anchor" href="#methods"><@s.text name='manage.metadata.methods.title'/></a>
           </li>
-      </#if>
+      </#if> -->
         <!-- Collections section -->
-      <#if eml.collections?? && (eml.collections?size > 0) && eml.collections[0].collectionName?has_content >
+<!--       <#if eml.collections?? && (eml.collections?size > 0) && eml.collections[0].collectionName?has_content >
           <li>
               <a class="sidebar-anchor" href="#collection"><@s.text name='manage.metadata.collections.title'/></a>
           </li>
-      </#if>
+      </#if> -->
         <!-- bibliographic citations section -->
-      <#if eml.bibliographicCitationSet?? && (eml.bibliographicCitationSet.bibliographicCitations?has_content)>
+<!--       <#if eml.bibliographicCitationSet?? && (eml.bibliographicCitationSet.bibliographicCitations?has_content)>
           <li>
               <a class="sidebar-anchor" href="#references"><@s.text name='manage.metadata.citations.bibliography'/></a>
           </li>
-      </#if>
+      </#if> -->
         <!-- Additional metadata section -->
-      <#if eml.additionalInfo?has_content || eml.purpose?has_content || (eml.alternateIdentifiers?size > 0 )>
+<!--       <#if eml.additionalInfo?has_content || eml.purpose?has_content || (eml.alternateIdentifiers?size > 0 )>
           <li>
               <a class="sidebar-anchor" href="#additional"><@s.text name='manage.metadata.additional.title'/></a>
           </li>
       </#if>
     </ul>
-</div>
+</div> -->
 <!-- /#sidebar-wrapper -->
   <#assign no_description><@s.text name='portal.resource.no.description'/></#assign>
   <#assign updateFrequencyTitle><@s.text name='eml.updateFrequency'/></#assign>
@@ -229,7 +229,7 @@
   <#assign download_eml_url>${baseURL}/eml.do?r=${resource.shortname}&v=<#if version??>${version.toPlainString()}<#else>${resource.emlVersion.toPlainString()}</#if></#assign>
   <#assign download_rtf_url>${baseURL}/rtf.do?r=${resource.shortname}&v=<#if version??>${version.toPlainString()}<#else>${resource.emlVersion.toPlainString()}</#if></#assign>
 
-    <div id="wrapper">
+    <!-- <div id="wrapper"> -->
         <#if managerRights><a href="${baseURL}/manage/resource.do?r=${resource.shortname}"><@s.text name='button.edit'/></a></#if>
         <input style="display:none" class="expand" type="button" id="menu-toggle2" name="expand-sidebar" value=""/>
         <img class="latestVersion"/>
@@ -305,23 +305,23 @@
                           <#if eml.distributionUrl?has_content || resource.lastPublished??>
                               <ul class="horizontal-list">
                                 <#if eml.distributionUrl?has_content>
-                                  <li class="box"><a href="${eml.distributionUrl}" class="icon icon-homepage"><@s.text name='eml.distributionUrl.short'/></a></li>
+                                  <li class="box"><a href="${eml.distributionUrl}" class="fa fa-home"><@s.text name='eml.distributionUrl.short'/></a></li>
                                 </#if>
                                 <#if resource.status=="REGISTERED" && resource.key??>
-                                  <li class="box"><a href="${cfg.portalUrl}/dataset/${resource.key}" class="icon icon-gbif"><@s.text name='portal.resource.gbif.page.short'/></a></li>
+                                  <li class="box"><a href="${cfg.portalUrl}/dataset/${resource.key}" class="fa fa-registered"> <@s.text name='portal.resource.gbif.page.short'/></a></li>
                                 </#if>
                                 <#if metadataOnly == false>
-                                  <li class="box"><a href="${download_dwca_url}" class="icon icon-download"><@s.text name='portal.resource.published.dwca'/></a></li>
+                                  <li class="box"><a href="${download_dwca_url}" class="fa fa-download"> <@s.text name='portal.resource.published.dwca'/></a></li>
                                 </#if>
                                 <#if resource.lastPublished??>
-                                  <li class="box"><a href="${download_eml_url}" class="icon icon-download"><@s.text name='portal.resource.published.eml'/></a></li>
-                                  <li class="box"><a href="${download_rtf_url}" class="icon icon-download"><@s.text name='portal.resource.published.rtf'/></a></li>
+                                  <li class="box"><a href="${download_eml_url}" class="fa fa-download"> <@s.text name='portal.resource.published.eml'/></a></li>
+                                  <li class="box"><a href="${download_rtf_url}" class="fa fa-download"> <@s.text name='portal.resource.published.rtf'/></a></li>
                                   <#if resource.versionHistory??>
-                                    <li class="box"><a href="${anchor_versions}" class="icon icon-clock"><@s.text name='portal.resource.versions'/></a></li>
+                                    <li class="box"><a href="${anchor_versions}" class="fa fa-clock-o"> <@s.text name='portal.resource.versions'/></a></li>
                                   </#if>
-                                  <li class="box"><a href="${anchor_rights}" class="icon icon-key"><@s.text name='eml.intellectualRights.simple'/></a></li>
+                                  <li class="box"><a href="${anchor_rights}" class="fa fa-key"> <@s.text name='eml.intellectualRights.simple'/></a></li>
                                   <#if eml.citation?? && (eml.citation.citation?has_content || eml.citation.identifier?has_content)>
-                                    <li class="box"><a href="${anchor_citation}" class="icon icon-book"><@s.text name='portal.resource.cite'/></a></li>
+                                    <li class="box"><a href="${anchor_citation}" class="fa fa-book"> <@s.text name='portal.resource.cite'/></a></li>
                                   </#if>
                                 </#if>
                               </ul>
@@ -853,7 +853,7 @@
         </div>
         <!-- /#page-content-wrapper -->
 
-    </div>
+    <!-- </div> -->
     <!-- /#wrapper -->
 
     <#include "/WEB-INF/pages/inc/footer.ftl">

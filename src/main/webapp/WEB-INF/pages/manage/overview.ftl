@@ -252,24 +252,27 @@ $(document).ready(function(){
     </p>
   </div>
 </div> -->
-<div class="container">
+<div>
   <div class="headline text-center">
     <h3>${resource.title!resource.shortname}</h3>
   </div>
-  <p><@s.text name="manage.overview.description"><@s.param>${resource.title!resource.shortname}</@s.param></@s.text></p>
+  <p><@s.text name="manage.overview.description"><@s.param>${resource.title!resource.shortname}</@s.param></@s.text> The icon <i class="infoImg fa fa-info-circle"></i> will give you helpful tips for uploading your dataset to APIs.</p>
   <h3>
-    <i class="infoImg fa fa-info-circle fa-lg"> </i>
+<!--     <i class="infoImg fa fa-info-circle fa-lg"> </i>
       <div class="info autop">
         <#if resource.coreType?has_content && resource.coreType==metadataType>
           <@s.text name="manage.overview.intro.metadataOnly"><@s.param>${resource.title!resource.shortname}</@s.param></@s.text>
         <#else>
           <@s.text name="manage.overview.intro"><@s.param>${resource.title!resource.shortname}</@s.param></@s.text>
         </#if>
-      </div>
-    <span class="resourceOverviewTitle"><@s.text name="manage.overview.title"/>: </span><a href="resource.do?r=${resource.shortname}" title="${resource.title!resource.shortname}">${resource.title!resource.shortname}</a>
+      </div> -->
+    <span><@s.text name="manage.overview.title"/></span>
   </h3>
+  <hr>
 </div>
-
+<h4>1. Source Data</h4> 
+<p>First, APIs needs to know your source data. That makes sense, right?</p>
+<p>Upload your source data files (.txt, .csv...) or connect your database tables to APIs (make sure your database is public readable).</p>
 <!-- when resource is of type metadata-only, there is no need to show source data and mapping sections -->
 <#if resource.coreType?has_content && resource.coreType==metadataType>
   <#include "/WEB-INF/pages/manage/overview_metadata.ftl"/>
@@ -389,6 +392,9 @@ $(document).ready(function(){
   </div>
 </div>
 <hr>
+<h4>5. Visibility</h4> 
+<p>Select the visibility of your dataset. <strong>Private:</strong> Only visible by you. <strong>Public: </strong> Everyone in APIs can see it.</p>
+<p>Only public datasets can be registered with GBIF.</p>
 <div class="resourceOverview" id="visibility">
   <div class="titleOverview">
     <div class="head">
@@ -504,6 +510,9 @@ $(document).ready(function(){
   </div>
 </div>
 <hr>
+<h4>6. Permissions</h4>  
+<p>Do you want other managers in APIs to modify your dataset?</p>
+<p>Select here the Resource Managers who are able to modify your dataset in APIs.</p>
 <div class="resourceOverview" id="managers">
   <div class="titleOverview">
     <div class="head">
@@ -558,7 +567,7 @@ $(document).ready(function(){
     </div>
   </div>
 </div>
-
+  <p style="padding-top:20px"><strong>Awesome!</strong> Save it and you're done!</p>
 <div>
   <#if resource.isAlreadyAssignedDoi()?string == "false" && resource.status != "REGISTERED">
     <#assign disableRegistrationRights="false"/>
