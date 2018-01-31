@@ -63,9 +63,10 @@
 <hr>
 <h4>2. Darwin Core Mapping</h4> 
 <p>After you have successfully added your source data (.txt, .csv...) or connected your database table you need to map your column headers from your source data to the Darwin Core terms.</p>
-<p>The DwC-Archive (DwC-A) is a relational model in which a row in a <strong>central core table</strong> can be linked to many rows in <strong>one or more surrounding extension tables</strong> via an unique identifier - <strong>the eventID</strong>.</p>
+<p>The DwC-Archive (DwC-A) is a relational model in which a row in a <strong>central core table</strong> can be linked to many rows in <strong>one or more surrounding extension tables</strong> via an unique identifier.</p>
 <p>1. First, select a Core Table, choose your corresponding source data for that Core and map that before selecting an Extension to map.<br>If you deal with time series population data, the Core Table is <strong>Darwin Core Event</strong>, which describes your sampling area incl. protocol and time like <strong>sampleSize</strong>, <strong>samplingProtocol</strong> and <strong>eventDate</strong>.</p>
-<p>2. Second, select the Extension table(s), choose your corresponding source data for that Extension and map it.<br>When your Core Table is <strong>Darwin Core Event</strong>, your extension Tables are all other tables you want to connect to that Core, e.g. <strong>Darwin Core Occurrence</strong>, which describes your species occurrence records like <strong>scientificName</strong>, <strong>organismQuantity</strong> etc.</p>
+<p>2. Second, select the Extension table(s), choose your corresponding source data for that Extension and map it.<br>When your Core Table is <strong>Darwin Core Event</strong>, your extension Tables are all other tables you want to connect to that Core, e.g. <strong>Darwin Core Occurrence</strong>, which describes your species occurrence records like <strong>scientificName</strong>, <strong>organismQuantity</strong> or <strong>Darwin Core Measurements or Facts</strong> for the information about your measurements.</p>
+<p>Download Example: <a href="../examples/event_ipt_template_v2_example_data.xlsx" target="_blank">Darwin Core Event</a></p>
 <div class="resourceOverview" id="mappings">
   <div class="titleOverview">
     <div class="head">
@@ -130,11 +131,10 @@
             <table>
               <#list resource.getMappings(resource.coreRowType) as m>
                   <tr <#if m_index==0>class="mapping_row"</#if>>
-                      <th><#if m_index==0>${m.extension.title}</#if></th>
-                      <td>${m.fields?size} <@s.text name='manage.overview.DwC.Mappings.terms'/> ${(m.source.name)!}.&nbsp;${(m.lastModified?date?string.medium)!}</td>
-                      <td>
-                          <!-- preview icon is taken from Gentleface Toolbar Icon Set available from http://gentleface.com/free_icon_set.html licensed under CC-BY -->
-                          <a href="mappingPeek.do?r=${resource.shortname}&id=${m.extension.rowType?url}&mid=${m_index}" class="icon icon-preview peekBtn"/>
+                      <th style="width:30%"><#if m_index==0>${m.extension.title}</#if></th>
+                      <td style="width:50%">${m.fields?size} <@s.text name='manage.overview.DwC.Mappings.terms'/> ${(m.source.name)!}.&nbsp;${(m.lastModified?date?string.medium)!}</td>
+                      <td style="width:20%">
+                          <a href="mappingPeek.do?r=${resource.shortname}&id=${m.extension.rowType?url}&mid=${m_index}" class="peekBtn btn btn-default"/>View
                           <a class="button" href="mapping.do?r=${resource.shortname}&id=${m.extension.rowType?url}&mid=${m_index}">
                               <input class="button btn btn-default" type="button" value='<@s.text name='button.edit'/>'/>
                           </a>
@@ -150,11 +150,10 @@
                   <#if ext.rowType != resource.coreRowType>
                     <#list resource.getMappings(ext.rowType) as m>
                         <tr <#if m_index==0>class="mapping_row"</#if>>
-                            <th><#if m_index==0>${ext.title}</#if></th>
-                            <td>${m.fields?size} <@s.text name='manage.overview.DwC.Mappings.terms'/> ${(m.source.name)!}.&nbsp;${(m.lastModified?date?string.medium)!}</td>
-                            <td>
-                                <!-- preview icon is taken from Gentleface Toolbar Icon Set available from http://gentleface.com/free_icon_set.html licensed under CC-BY -->
-                                <a href="mappingPeek.do?r=${resource.shortname}&id=${ext.rowType?url}&mid=${m_index}" class="icon icon-preview peekBtn"/>
+                            <th style="width:30%"><#if m_index==0>${ext.title}</#if></th>
+                            <td style="width:50%">${m.fields?size} <@s.text name='manage.overview.DwC.Mappings.terms'/> ${(m.source.name)!}.&nbsp;${(m.lastModified?date?string.medium)!}</td>
+                            <td style="width:20%">
+                                <a href="mappingPeek.do?r=${resource.shortname}&id=${ext.rowType?url}&mid=${m_index}" class="peekBtn btn btn-default"/>View 
                                 <a class="button" href="mapping.do?r=${resource.shortname}&id=${ext.rowType?url}&mid=${m_index}">
                                     <input class="button btn btn-default" type="button" value='<@s.text name='button.edit'/>'/>
                                 </a>

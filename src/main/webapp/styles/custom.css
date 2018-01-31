@@ -190,6 +190,10 @@ div.resourceOverview div.titleOverview {
     color: #514A9D;
 }
 
+#analyze {
+    width: 40% !important;
+}
+
 /***************************************
 Customized Bootstrap Template
 /***************************************

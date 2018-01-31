@@ -35,7 +35,7 @@ $(document).ready(function(){
   	<input type="hidden" name="id" value="${id!}" />  	
 
     <#if source??>
-      <p><@s.text name='manage.source.intro'/></p>
+      <!-- <p><@s.text name='manage.source.intro'/></p> -->
       <div class="clearfix">
         <div class="row">
           <div class="col-md-6">
@@ -44,7 +44,7 @@ $(document).ready(function(){
           <div class="col-md-6">
             <div class="detailsSource">
               <table id="source-properties">
-                <tr><th><@s.text name='manage.source.readable'/></th><td><img src="${baseURL}/images/<#if source.readable>good.gif" /><#else>bad.gif" /> ${problem!}</#if></td></tr>
+                <tr><th><@s.text name='manage.source.readable'/></th><td><#if source.readable><i style="color:#35a948" class="fa fa-check"></i><#else><i style="color:#ff003b" class="fa fa-exclamation-triangle"></i> ${problem!}</#if></td></tr>
                 <tr><th><@s.text name='manage.source.columns'/></th><td>${source.getColumns()}</td></tr>
                 <#if source.fieldsTerminatedBy?has_content>
                   <tr><th><@s.text name='manage.source.file'/></th><td>${(source.file.getAbsolutePath())!}</td></tr>
@@ -57,15 +57,11 @@ $(document).ready(function(){
                 <#else>
                 </#if>
               </table>
-              <table class="bottomButtons">
-                <tr>
-                  <th>
-                    <@s.submit cssClass="btn btn-default" name="analyze" key="button.analyze"/>
-                    <!-- preview icon is taken from Gentleface Toolbar Icon Set available from http://gentleface.com/free_icon_set.html licensed under CC-BY -->
-                    <a href="#" id="peekBtn" class="icon icon-preview peekBtn"/>
-                  </th>
-                </tr>
-              </table>
+
+              <div class="buttons" style="min-width:300px">
+                <@s.submit cssClass="btn btn-default" name="analyze" key="button.analyze"/>
+                <button id="peekBtn" class="btn btn-default">View source data</button>
+              </div>
             </div>
           </div>
         </div>  
@@ -87,6 +83,8 @@ $(document).ready(function(){
 
 
         <div class="clearfix" style="margin-top: 40px;">
+          <p style="color:#333;"><strong>APIs analyzed your source data!</strong></p>
+          <p style="color:#333;">If you change the fields below, confirm by clicking on "Analyze".<br>APIs generates than a new dataset view based on your new input by clicking on "View source data".</p>
 
           <#if source.isSqlSource()>
           <#-- only for sql sources -->

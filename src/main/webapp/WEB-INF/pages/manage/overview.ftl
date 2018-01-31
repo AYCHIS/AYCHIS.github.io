@@ -273,6 +273,7 @@ $(document).ready(function(){
 <h4>1. Source Data</h4> 
 <p>First, APIs needs to know your source data. That makes sense, right?</p>
 <p>Upload your source data files (.txt, .csv...) or connect your database tables to APIs (make sure your database is public readable).</p>
+<p><span style="color: #514A9D">Tip:</span> Label your columns names according to Darwin Core terms that makes mapping in step 2 easier. <a href="https://bid.gbif.org/en/community/data-quality/#sampling" target="_blank">See minimum required Darwin Core terms</a></p>
 <!-- when resource is of type metadata-only, there is no need to show source data and mapping sections -->
 <#if resource.coreType?has_content && resource.coreType==metadataType>
   <#include "/WEB-INF/pages/manage/overview_metadata.ftl"/>
