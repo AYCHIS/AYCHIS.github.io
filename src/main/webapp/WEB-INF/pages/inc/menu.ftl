@@ -243,11 +243,12 @@ $(document).ready(function(){
           <div class="video-overlay has-gradient"></div>
           <div class="container">
             <div class="headline text-center">
-              <h3>Watch tutorial</h3>
-              <p>APIs is based on the Integrated Publishing Toolkit (IPT) by GBIF. Learn how to publish your datasets via IPT.</p>
+              <h3>Quick guide</h3>
+              <p>APIs is using the Darwin Core Terms by TDWG.</p>
+              <p>Learn the definitions to the essential information about the current recommended Darwin Core terms.</p>
             </div>
-            <a href="https://www.youtube.com/watch?v=eDH9IoTrMVE" class="video-action text-center" target="_blank">
-              <i class="fa fa-play-circle-o"></i>
+            <a href="http://rs.tdwg.org/dwc/terms/index.htm#theterms" class="video-action text-center" target="_blank">
+              <i class="fa fa-hand-pointer-o"></i>
             </a>
           </div>
         </section>
@@ -326,7 +327,7 @@ $(document).ready(function(){
                       </div>
                     </div>
                   </div>
-                  <div class="helpme"><p>Need more help?<br>Please contact the <a href="mailto:helpdesk@gbif.org">GBIF Helpdesk.</a></p></div>
+                  <div class="helpme"><p>Need more help?<br>Please contact the <a href="mailto:christian.langer@idiv.de">APIs Administrator.</a></p></div>
                 </div>
               </div>
 
@@ -357,8 +358,8 @@ $(document).ready(function(){
       <aside class="col-md-3 pull-right">
       <!-- <div class="clearfix" id="sidebar"> -->
       <div class="clearfix">
-        <h2 style="color:#514A9D">[@s.text name='manage.metadata.section' /]</h2>
-        <ul class="sidebar">
+        <ul class="sidebar-nav" style="top:25px">
+          <li class="title">[@s.text name='manage.metadata.section' /]</li>
         [#list ["basic", "geocoverage", "taxcoverage","tempcoverage", "keywords", "parties", "project", "methods", "citations", "collections", "physical", "additional"] as it]
          <li[#if currentSideMenu?? && currentSideMenu==it] class="current"[#else] class="sidebar"[/#if]><a href="metadata-${it}.do?r=${resource.shortname!r!}">[@s.text name="submenu.${it}"/]</a></li>
         [/#list]

@@ -197,11 +197,15 @@ $(document).ready(function(){
 <#assign redundants = action.getRedundantGroups()/>
 <#assign nonMapped = action.getNonMappedColumns()/>
 
+
 <#macro threeButtons>
+<div style="margin-top:30px">
   <@s.submit cssClass="btn btn-default" name="save" key="button.save"/>
   <@s.submit cssClass="btn btn-danger confirm" name="delete" key="button.delete"/>
   <@s.submit cssClass="btn btn-default" name="cancel" key="button.back"/>
+</div>
 </#macro>
+
 
 <#macro sourceSample index fieldsIndex>
   <div id="fSIdx${fieldsIndex}" class="sample mappingText">

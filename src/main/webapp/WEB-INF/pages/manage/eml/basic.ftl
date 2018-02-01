@@ -137,10 +137,10 @@
   </h3>
 </div>
 -->
-<a href="resource.do?r=${resource.shortname}" title="${resource.title!resource.shortname}"><i class="fa fa-backward"></i> Overview: ${resource.title!resource.shortname}</a>
+<a href="resource.do?r=${resource.shortname}" title="${resource.title!resource.shortname}"><i class="fa fa-backward"></i> Overview</a>
 <!-- <div class="grid_17 suffix_1"> -->
 <div class="col-md-12">
-<h2 class="subTitle"><@s.text name='manage.metadata.basic.title'/></h2>
+<h3><@s.text name='manage.metadata.basic.title'/></h3>
     <form class="topForm" action="metadata-${section}.do" method="post">
     <p><@s.text name="manage.metadata.basic.required.message" /></p>
     <@input name="eml.title" requiredField=true />

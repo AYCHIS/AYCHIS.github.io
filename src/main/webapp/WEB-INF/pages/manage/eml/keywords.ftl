@@ -17,9 +17,9 @@ $(document).ready(function(){
 <!-- <h3><span class="superscript"><@s.text name='manage.overview.title.label'/></span>
     <a href="resource.do?r=${resource.shortname}" title="${resource.title!resource.shortname}">${resource.title!resource.shortname}</a>
 </h3> -->
-<a href="resource.do?r=${resource.shortname}" title="${resource.title!resource.shortname}"><i class="fa fa-backward"></i> Overview: ${resource.title!resource.shortname}</a>
+<a href="resource.do?r=${resource.shortname}" title="${resource.title!resource.shortname}"><i class="fa fa-backward"></i> Overview</a>
 <div class="col-md-12">
-<h2 class="subTitle"><@s.text name='manage.metadata.keywords.title'/></h2>
+<h3><@s.text name='manage.metadata.keywords.title'/></h3>
 <form class="topForm" action="metadata-${section}.do" method="post">
     <p><@s.text name='manage.metadata.keywords.intro'/></p>
 	<div id="items">
