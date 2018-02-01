@@ -30,7 +30,7 @@ Major features include:
 
 The simplest way to begin using the IPT is installing Apache Tomcat on your server or local machine. GBIF offers a useful installation guide (check [GBIF Wiki](https://github.com/gbif/ipt/wiki/IPTServerPreparation.wiki)) to install Apache Tomcat on every OS.
 
-After successfully installed Tomcat on your system you need to deploy the web application archive file (.war file) of APIs in this Java servlet container. <br>Download the `ipt-apis.war` file directly [here](https://github.com/ChristianLanger/ipt/blob/master/ipt-apis.war) or create the war file using the following bash command in the webapp folder. 
+After successfully installed Tomcat on your system you need to deploy the web application archive file (.war file) of APIs in this Java servlet container. <br>Download the `apis.war` file directly [here](https://github.com/ChristianLanger/ipt/blob/master/apis.war) or create the war file using the following bash command in the webapp folder. 
 
 `jar -cvf ipt-apis.war *`
 
