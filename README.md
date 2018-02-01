@@ -32,7 +32,7 @@ The simplest way to begin using the IPT is installing Apache Tomcat on your serv
 
 After successfully installed Tomcat on your system you need to deploy the web application archive file (.war file) of APIs in this Java servlet container. <br>Download the `apis.war` file directly [here](https://github.com/ChristianLanger/ipt/blob/master/apis.war) or create the war file using the following bash command in the webapp folder. 
 
-`jar -cvf ipt-apis.war *`
+`jar -cvf apis.war *`
 
 After deploying the .war file your web application will be listed in your Tomcat Web Application Manager. If you have used your local machine for the IPT installation you can reach the application via `localhost:8080/ipt` in your web browser.<br><br>
 That´s it! You are now ready to use APIs!
