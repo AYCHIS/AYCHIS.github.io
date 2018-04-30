@@ -128,20 +128,28 @@ $(document).ready(function(){
 			$(this).parent('form').submit();
 		});
 	});
+
+
 	$("#file").change(function() {
 		var usedFileName = $("#file").prop("value");
 		if(usedFileName != "") {			
 			$("#add").attr("value", '<@s.text name="button.add"/>');
+      $("#add").removeClass('disabled');
+      $("#add").removeClass('pointernone');
 		}
 	});
 	$("#clear").click(function(event) {
 		event.preventDefault();
 		$("#file").prop("value", "");
-		$("#add").attr("value", '<@s.text name="button.connectDB"/>');
+		$("#add").attr("value", '<@s.text name="button.add"/>');
+    $("#add").addClass('pointernone');
+    $("#add").addClass('disabled');
 	});
+
 
   $(function() {
     $('.icon-validate').tooltip({track: true});
+    $("#add").addClass('pointernone');
   });
 
     // on select of publishing frequency set parameter for publishing frequency
@@ -256,7 +264,7 @@ $(document).ready(function(){
   <div class="headline text-center">
     <h3>${resource.title!resource.shortname}</h3>
   </div>
-  <p><@s.text name="manage.overview.description"><@s.param>${resource.title!resource.shortname}</@s.param></@s.text> The icon <i class="infoImg fa fa-info-circle"></i> will give you helpful tips for uploading your dataset to APIs.</p>
+  <p><@s.text name="manage.overview.description"><@s.param>${resource.title!resource.shortname}</@s.param></@s.text> Clicking the icon <i class="infoImg fa fa-info-circle"></i> will give you helpful tips for uploading your dataset to APIs.</p>
   <h3>
 <!--     <i class="infoImg fa fa-info-circle fa-lg"> </i>
       <div class="info autop">
@@ -271,9 +279,11 @@ $(document).ready(function(){
   <hr>
 </div>
 <h4>1. Source Data</h4> 
-<p>First, APIs needs to know your source data. That makes sense, right?</p>
-<p>Upload your source data files (.txt, .csv...) or connect your database tables to APIs (make sure your database is under public domain).</p>
-<p><span style="color: #514A9D">Tip:</span> Label your columns names according to Darwin Core terms that makes mapping in step 2 easier. <a href="https://bid.gbif.org/en/community/data-quality/#sampling" target="_blank">See minimum required Darwin Core terms</a></p>
+<p>Upload your source data delimited text files (csv, tab, xlsx and files using any other delimiter) then click "Add".</p>
+<p>First, upload your Event source data. Second, upload your Occurrence source data.</p>
+<p>Label your columns names in your source data according to Darwin Core terms that makes mapping in step 2 easier (<a href="https://bid.gbif.org/en/community/data-quality/#sampling" target="_blank">Darwin Core terms</a>).</p>
+<p><b>Event source data example:</b> <a href="../examples/event_example_data.xlsx" target="_blank">Darwin Core Event</a></p>
+<p><b>Occurrence source data example:</b> <a href="../examples/occurrence_example_data.xlsx" target="_blank">Darwin Core Occurrence</a></p>
 <!-- when resource is of type metadata-only, there is no need to show source data and mapping sections -->
 <#if resource.coreType?has_content && resource.coreType==metadataType>
   <#include "/WEB-INF/pages/manage/overview_metadata.ftl"/>

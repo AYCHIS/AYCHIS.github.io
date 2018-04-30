@@ -2,25 +2,47 @@
 <div class="resourceOverview" id="sources">
   <div class="titleOverview">
     <div class="head">
+      <!--
       <i class="infoImg fa fa-info-circle fa-lg"> </i>
+
       <div class="info autop">
-      <@s.text name='manage.overview.source.description1'/>&nbsp;<@s.text name='manage.overview.source.description2'/>&nbsp;<@s.text name='manage.overview.source.description3'><@s.param><@s.text name="button.add"/></@s.param></@s.text></br></br><@s.text name='manage.overview.source.description4'><@s.param><@s.text name="button.connectDB"/></@s.param></@s.text></br></br><@s.text name='manage.overview.source.description5'/>
-      </div>
+      <@s.text name='manage.overview.source.description1'/>&nbsp;
+      <@s.text name='manage.overview.source.description2'/>&nbsp;
+      
+      <@s.text name='manage.overview.source.description3'>
+        <@s.param><@s.text name="button.add"/></@s.param>
+      </@s.text>
+      
+       <@s.text name='manage.overview.source.description4'>
+        <@s.param><@s.text name="button.connectDB"/></@s.param>
+      </@s.text></br></br>
+
+      <@s.text name='manage.overview.source.description5'/> 
+      </div>-->
+
       <@s.text name='manage.overview.source.data'/>
+
     </div>
     <div class="actions">
       <form action='addsource.do' method='post' enctype="multipart/form-data">
         <input name="r" type="hidden" value="${resource.shortname}"/>
         <input name="validate" type="hidden" value="false"/>
         <@s.file name="file" key="manage.resource.create.file"/>
-        <@s.submit name="add" cssClass="button btn btn-default" key="button.connectDB"/>
+
+        <@s.submit name="add" cssClass="button btn btn-default disabled" key="button.add" />
+
         <@s.submit name="clear" cssClass="button btn btn-default" key="button.clear"/>
         <div style="display: none;">
           <@s.submit name="cancel" key="button.cancel" method="cancelOverwrite"/>
         </div>
       </form>
     </div>
+
+
+
   </div>
+
+
   <div class="bodyOverview">
     <p>
       <@s.text name='manage.overview.source.intro'/>
@@ -50,7 +72,7 @@
               </#if>
               <td>
                 <a class="button" href="source.do?r=${resource.shortname}&id=${src.name}">
-                  <input class="button btn btn-default" type="button" value='<@s.text name='button.edit'/>'/>
+                  <input class="button btn btn-default" type="button" value="<@s.text name='button.edit'/>"/>
                 </a>
               </td>
             </tr>
@@ -62,11 +84,9 @@
 </div>
 <hr>
 <h4>2. Darwin Core Mapping</h4> 
-<p>After you have successfully added your source data (.txt, .csv...) or connected your database table you need to map your column headers from your source data to the Darwin Core terms.</p>
 <p>The DwC-Archive (DwC-A) is a relational model in which a row in a <strong>central core table</strong> can be linked to many rows in <strong>one or more surrounding extension tables</strong> via an unique identifier.</p>
 <p>1. First, select a Core Table, choose your corresponding source data for that Core and map that before selecting an Extension to map.<br>If you deal with time series population data, the Core Table is <strong>Darwin Core Event</strong>, which describes your sampling area incl. protocol and time like <strong>sampleSize</strong>, <strong>samplingProtocol</strong> and <strong>eventDate</strong>.</p>
 <p>2. Second, select the Extension table(s), choose your corresponding source data for that Extension and map it.<br>When your Core Table is <strong>Darwin Core Event</strong>, your extension Tables are all other tables you want to connect to that Core, e.g. <strong>Darwin Core Occurrence</strong>, which describes your species occurrence records like <strong>scientificName</strong>, <strong>organismQuantity</strong> or <strong>Darwin Core Measurements or Facts</strong> for the information about your measurements.</p>
-<p>Download Example: <a href="../examples/event_ipt_template_v2_example_data.xlsx" target="_blank">Darwin Core Event</a></p>
 <div class="resourceOverview" id="mappings">
   <div class="titleOverview">
     <div class="head">

@@ -20,6 +20,10 @@ a {
   font-size: 0.875rem;
 }
 
+.pointernone{
+  pointer-events: none;
+}
+
 /* Navbar */
 
 ul.dropdown-menu li {
