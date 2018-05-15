@@ -11,23 +11,26 @@ $(document).ready(function(){
 <#include "/WEB-INF/pages/inc/menu.ftl">
 <#include "/WEB-INF/pages/macros/forms.ftl"/>
 
-<div class="grid_17 suffix_7">
+<div>
+<!-- <div class="grid_17 suffix_7"> -->
 <form class="topForm" action="mapping.do" method="post">
     <!-- <h1>${mapping.extension.title}</h1> -->
+
   <div class="headline text-center">
     <h3>${mapping.extension.title}</h3>
   </div>
-    <p>${mapping.extension.description}</p>
+
+    <!-- <p>${mapping.extension.description}</p>
     <#if mapping.extension.link?has_content>
     <p><@s.text name="basic.link"/>: <a href="${mapping.extension.link}">${mapping.extension.link}</a></p>
-    </#if>
+    </#if> -->
   	<input type="hidden" name="r" value="${resource.shortname}" />
   	<input type="hidden" name="id" value="${mapping.extension.rowType}" />
   	<input type="hidden" name="mid" value="${mid!}" />
   	<input id="showAllValue" type="hidden" name="showAll" value="${Parameters.showAll!"true"}" />
 
-    <h3><@s.text name='manage.mapping.source'/></h3>
-    <p><@s.text name='manage.mapping.source.help'/></p>
+    <!-- <h3><@s.text name='manage.mapping.source'/></h3> -->
+    <p><@s.text name='manage.mapping.source.help'/> for <b>${mapping.extension.title}</b>.</p>
 
     <@selectList name="source" options=resource.sources objValue="name" objTitle="name" i18nkey="manage.mapping.source" />
 

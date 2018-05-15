@@ -264,7 +264,7 @@ $(document).ready(function(){
   <div class="headline text-center">
     <h3>${resource.title!resource.shortname}</h3>
   </div>
-  <p><@s.text name="manage.overview.description"><@s.param>${resource.title!resource.shortname}</@s.param></@s.text> Clicking the icon <i class="infoImg fa fa-info-circle"></i> will give you helpful tips for uploading your dataset to APIs.</p>
+  <p><@s.text name="manage.overview.description"><@s.param>${resource.title!resource.shortname}</@s.param></@s.text> With a click on the icon <i class="infoImg fa fa-info-circle"></i> you will get useful tips for uploading datasets to APIs.</p>
   <h3>
 <!--     <i class="infoImg fa fa-info-circle fa-lg"> </i>
       <div class="info autop">
@@ -279,11 +279,11 @@ $(document).ready(function(){
   <hr>
 </div>
 <h4>1. Source Data</h4> 
-<p>Upload your source data delimited text files (csv, tab, xlsx and files using any other delimiter) then click "Add".</p>
-<p>First, upload your Event source data. Second, upload your Occurrence source data.</p>
-<p>Label your columns names in your source data according to Darwin Core terms that makes mapping in step 2 easier (<a href="https://bid.gbif.org/en/community/data-quality/#sampling" target="_blank">Darwin Core terms</a>).</p>
-<p><b>Event source data example:</b> <a href="../examples/event_example_data.xlsx" target="_blank">Darwin Core Event</a></p>
-<p><b>Occurrence source data example:</b> <a href="../examples/occurrence_example_data.xlsx" target="_blank">Darwin Core Occurrence</a></p>
+<p>Upload your source data delimited text files (.csv, .xlsx or files using any other delimiter) then click "Add".</p>
+<p>First, upload your <b>Event</b> source data. Second, upload your <b>Occurrence</b> source data.</p>
+<p><b>Event source data example:</b> <a href="../examples/event_example_data.xlsx" target="_blank">Event table</a> (description about sampling area incl. protocol and time)</p>
+<p><b>Occurrence source data example:</b> <a href="../examples/occurrence_example_data.xlsx" target="_blank">Occurrence table</a> (description about species occurrence)</p>
+<p>Label your columns names in your source data according to the terms as in the above example tables that makes mapping in step 2 easier (<a href="https://bid.gbif.org/en/community/data-quality/#sampling" target="_blank">See a summary of mandatory terms for each table</a>).</p>
 <!-- when resource is of type metadata-only, there is no need to show source data and mapping sections -->
 <#if resource.coreType?has_content && resource.coreType==metadataType>
   <#include "/WEB-INF/pages/manage/overview_metadata.ftl"/>

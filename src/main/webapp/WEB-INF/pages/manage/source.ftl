@@ -47,13 +47,13 @@ $(document).ready(function(){
                 <tr><th><@s.text name='manage.source.readable'/></th><td><#if source.readable><i style="color:#35a948" class="fa fa-check"></i><#else><i style="color:#ff003b" class="fa fa-exclamation-triangle"></i> ${problem!}</#if></td></tr>
                 <tr><th><@s.text name='manage.source.columns'/></th><td>${source.getColumns()}</td></tr>
                 <#if source.fieldsTerminatedBy?has_content>
-                  <tr><th><@s.text name='manage.source.file'/></th><td>${(source.file.getAbsolutePath())!}</td></tr>
+                  <!-- <tr><th><@s.text name='manage.source.file'/></th><td>${(source.file.getAbsolutePath())!}</td></tr> -->
                   <tr><th><@s.text name='manage.source.size'/></th><td>${source.fileSizeFormatted!"???"}</td></tr>
                   <tr><th><@s.text name='manage.source.rows'/></th><td>${source.rows!"???"}</td></tr>
-                  <tr><th><@s.text name='manage.source.modified'/></th><td>${(source.lastModified?datetime?string.medium)!}</td></tr>
-                  <#if (logExists)>
+                  <!-- <tr><th><@s.text name='manage.source.modified'/></th><td>${(source.lastModified?datetime?string.medium)!}</td></tr> -->
+                  <!-- <#if (logExists)>
                       <tr><th><@s.text name='manage.source.source.log'/></th><td><a href="${baseURL}/sourcelog.do?r=${resource.shortname}&s=${source.name}"><@s.text name='manage.source.download'/></a></td></tr>
-                  </#if>
+                  </#if> -->
                 <#else>
                 </#if>
               </table>
