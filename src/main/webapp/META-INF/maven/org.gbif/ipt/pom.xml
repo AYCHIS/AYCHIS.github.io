@@ -71,7 +71,7 @@
     <log4j.version>1.2.17</log4j.version>
     <mockito-all.version>1.10.19</mockito-all.version>
     <!-- warning!! Connector/J 6.0 does not work with Java6, read http://dev.mysql.com/doc/connector-j/6.0/en/connector-j-versions.html -->
-    <mysql-connector-java.version>5.1.40</mysql-connector-java.version>
+    <mysql-connector-java.version>8.0.16</mysql-connector-java.version>
     <ojdbc.version>14</ojdbc.version>
     <!-- warning!! 9.4.1211.jre7 does not work with Java6, read https://jdbc.postgresql.org/download.html -->
     <postgresql.version>9.4.1211.jre6</postgresql.version>
