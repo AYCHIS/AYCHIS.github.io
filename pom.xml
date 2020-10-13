@@ -70,7 +70,7 @@
     <jsp-api.version>2.0</jsp-api.version>
     <jsr305.version>3.0.2</jsr305.version>
     <jtds.version>1.3.1</jtds.version>
-    <junit.version>4.12</junit.version>
+    <junit.version>4.13.1</junit.version>
     <log4j.version>1.2.17</log4j.version>
     <metrics-ws-client.version>0.27</metrics-ws-client.version>
     <mockito-all.version>1.10.19</mockito-all.version>
