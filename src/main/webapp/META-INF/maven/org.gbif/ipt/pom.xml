@@ -39,7 +39,7 @@
 
     <jdkLevel>1.6</jdkLevel>
 
-    <apache-poi.version>3.15</apache-poi.version>
+    <apache-poi.version>4.1.2</apache-poi.version>
     <commons-digester.version>2.1</commons-digester.version>
     <commons-lang3.version>3.5</commons-lang3.version>
     <commons-io.version>2.5</commons-io.version>
