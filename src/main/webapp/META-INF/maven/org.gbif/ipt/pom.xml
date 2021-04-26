@@ -42,7 +42,7 @@
     <apache-poi.version>3.15</apache-poi.version>
     <commons-digester.version>2.1</commons-digester.version>
     <commons-lang3.version>3.5</commons-lang3.version>
-    <commons-io.version>2.5</commons-io.version>
+    <commons-io.version>2.7</commons-io.version>
     <commons-validator.version>1.5.1</commons-validator.version>
     <validation-api.version>1.1.0.Final</validation-api.version>
     <dwca-io.version>1.27</dwca-io.version>
