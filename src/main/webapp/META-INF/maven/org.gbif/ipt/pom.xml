@@ -60,7 +60,7 @@
     <freemarker.version>2.3.25-incubating</freemarker.version>
     <gson.version>2.7</gson.version>
     <guice.version>3.0</guice.version>
-    <httpclient.version>4.3.6</httpclient.version>
+    <httpclient.version>4.5.13</httpclient.version>
     <httpcore.version>4.3.3</httpcore.version>
     <itext.version>2.1.7</itext.version>
     <javassist.version>3.12.1.GA</javassist.version>
